@@ -13,6 +13,13 @@
 			<version>4.5</version>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+			<groupId>uqbar</groupId>
+			<artifactId>util-commons</artifactId>
+			<version>3.0.1-SNAPSHOT</version>
+		</dependency>
+		
 	</dependencies>
 
 
