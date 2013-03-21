@@ -16,11 +16,16 @@ public class Terreno {
 	}
 	
 	public Planta siguiente(){
-		
+
 	}
 
 	public boolean estaVacio() {
 		return plantas.isEmpty();
+	}
+
+	public void desplantame(Planta planta) {
+		
+		this.getPlantas().remove(planta);		
 	}
 	
 }

@@ -34,16 +34,22 @@ public class Zombie {
 				throw new UserException("Perdiste el juego!!!");
 			}
 			else{
-				this.atacarPlanta(terreno.siguiente(), this.getAtaque());
+				this.atacarPlanta(terreno, this.getAtaque());
 				this.meAtaco(terreno.siguiente().getPuntosDeDaño());
 			}
-			
+			if(this.estoyMuerto()){
+				
+			}
 		}	
 	}
 	
-	private void meAtaco(int puntosDeDaño) {
+	private boolean estoyMuerto() {
+		// TODO Auto-generated method stub
+		return false;
+	}
+	private void meAtaco(int ataque) {
 		
-		this.setResistencia(this.getResistencia() - puntosDeDaño);
+		this.setResistencia(this.getResistencia() - ataque);
 		
 	}
 	
@@ -51,9 +57,9 @@ public class Zombie {
 		return this.resistencia>0;
 	}
 	
-	private void atacarPlanta(Planta planta, int ataque) {
+	private void atacarPlanta(Terreno terreno, int ataque) {
 		
-		
+		terreno.siguiente().meAtaco(ataque,terreno);
 		
 	}
 	
