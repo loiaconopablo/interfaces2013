@@ -4,8 +4,15 @@ public class Planta {
 	private int puntosDeDaño;
 	private int capacidadDefensiva;
 	private String nombre;
+	private Terreno terreno;
 	
 	
+	public Terreno getTerreno() {
+		return terreno;
+	}
+	public void setTerreno(Terreno terreno) {
+		this.terreno = terreno;
+	}
 	public int getPuntosDeDaño() {
 		return puntosDeDaño;
 	}
@@ -23,5 +30,14 @@ public class Planta {
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
+	}
+	
+	public void meAtaco(int ataque,Terreno terreno) {
+		
+		this.setCapacidadDefensiva(this.getCapacidadDefensiva() - ataque);
+		if(this.capacidadDefensiva <= 0){
+			terreno.desplantame(this);
+			
+		}
 	}
 }
