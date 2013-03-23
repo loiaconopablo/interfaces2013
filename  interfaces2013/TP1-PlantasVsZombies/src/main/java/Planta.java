@@ -6,6 +6,12 @@ public class Planta {
 	private String nombre;
 	private Terreno terreno;
 	
+	public Planta(int puntosDeDaño, int capacidadDefensiva, String nombre,Terreno terreno){
+		this.capacidadDefensiva = capacidadDefensiva;
+		this.puntosDeDaño = puntosDeDaño;
+		this.nombre = nombre;
+		this.terreno = terreno;
+	}
 	
 	public Terreno getTerreno() {
 		return terreno;
