@@ -5,6 +5,14 @@ public class Semilla {
 	private String nombre;
 	private int puntosDeDaño;
 	private int capacidadDefensiva;
+	
+	public Semilla(TipoTerreno terreno, String nombre, int puntosDeDaño, int capacidadDefensiva){
+		this.tipoTerreno = terreno;
+		this.nombre = nombre;
+		this.puntosDeDaño = puntosDeDaño;
+		this.capacidadDefensiva = capacidadDefensiva;
+	}
+	
 	public TipoTerreno getTipoTerreno() {
 		return tipoTerreno;
 	}
