@@ -2,6 +2,7 @@ import java.util.List;
 
 public class Terreno {
 
+	private TipoTerreno tipoTerreno;
 	private List<Planta> plantas;
 
 	public Terreno() {
@@ -10,7 +11,18 @@ public class Terreno {
 		}
 	}
 
-    public List<Planta> getPlantas() {
+	
+    public TipoTerreno getTipoTerreno() {
+		return tipoTerreno;
+	}
+
+
+	public void setTipoTerreno(TipoTerreno tipoTerreno) {
+		this.tipoTerreno = tipoTerreno;
+	}
+
+
+	public List<Planta> getPlantas() {
 		return this.plantas;
 	}
     public void setPlantas(List<Planta> plantas) {
@@ -41,4 +53,11 @@ public class Terreno {
 		this.getPlantas().remove(planta);
 	}
 
+	public boolean esAcuatico(){
+		return this.getTipoTerreno().esAcuatica();
+	}
+	
+	public boolean esTerrestre(){
+		return this.getTipoTerreno().esTerrestre();
+	}
 }

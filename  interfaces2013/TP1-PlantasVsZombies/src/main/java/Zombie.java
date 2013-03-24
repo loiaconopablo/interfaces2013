@@ -75,11 +75,15 @@ public class Zombie {
 					if (this.doyPlanta()) {
 						this.getJardinZen().añadirSemilla();
 					}else{
-						//this.getJardin().sumarRecursos()
+						this.getJardin().sumarRecursos(this.darPremio());
 					}
 				}
 			}
 		}
+	}
+
+	private int darPremio() {
+		return (int)(Math.random()*(((this.getResistenciaInicial()-1)/3)-1))+1;
 	}
 
 	private boolean doyPlanta() {
