@@ -2,6 +2,7 @@
 public class Jardin {
 
 	private int recursos;
+	private List <Terreno> filas;
 	
 	public int getRecursos() {
 		return recursos;
@@ -15,5 +16,11 @@ public class Jardin {
 		this.setRecursos(this.getRecursos() + premio);
 	}
 
+	public List<Terreno> getFilas() {
+		return this.filas;
+	}
+    public void setFilas(List<Terreno> filas) {
+		this.filas = filas;
 
+	
 }

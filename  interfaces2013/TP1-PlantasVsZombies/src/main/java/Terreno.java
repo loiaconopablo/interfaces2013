@@ -5,13 +5,14 @@ public class Terreno {
 	private TipoTerreno tipoTerreno;
 	private List<Planta> plantas;
 
-	public Terreno() {
+	public Terreno(TipoTerreno terreno) {//Agregue que se le pase el tipo de Terreno
+		this.tipoTerreno = terreno; 
 		for (int i = 0; i < 5; i++) {
 			this.getPlantas().add(null);
 		}
 	}
 
-	
+		
     public TipoTerreno getTipoTerreno() {
 		return tipoTerreno;
 	}
@@ -37,13 +38,18 @@ public class Terreno {
 	public Planta siguiente(){
 		int casillero = 4;
 		boolean encontrePlanta = false;
-		Planta siguientePlanta = null;
+		Planta siguientePlanta = null; 
 		while(! encontrePlanta){
-			encontrePlanta= true;
+			if(estaLibre(casillero)) { //Agregue este IF que faltaba, pregunta
+				encontrePlanta= false	// si esta vacio y cambia de casillero
+				casillero--;} 
+			else
+				{encontrePlanta= true	
 			siguientePlanta= this.getPlantas().get(casillero);
-		}
+				}
+								}
 		return siguientePlanta;
-	}
+							}
 
 	public boolean estaVacio() {
 		return plantas.isEmpty();
