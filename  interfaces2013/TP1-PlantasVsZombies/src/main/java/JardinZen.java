@@ -41,8 +41,10 @@ public class JardinZen {
 	}
 	
 	public void sembrarEn(Semilla semilla, Terreno terreno, int casillero){
-		if (semilla.esAcuatica() & terreno.esAcuatico()){
-			//TODO
+		if ((semilla.esAcuatica() && terreno.esAcuatico()) || (semilla.esTerrestre() && terreno.esTerrestre())){
+			if(terreno.estaLibre(casillero)){
+				terreno.añadirEn(semilla,casillero);
+			}
 		}
 	}
 
