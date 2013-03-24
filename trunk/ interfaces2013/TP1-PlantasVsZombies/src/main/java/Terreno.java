@@ -60,4 +60,13 @@ public class Terreno {
 	public boolean esTerrestre(){
 		return this.getTipoTerreno().esTerrestre();
 	}
+	
+	public boolean estaLibre(int casillero){
+		return this.getPlantas().get(casillero).equals(null);
+	}
+
+
+	public void añadirEn(Semilla semilla, int casillero) {
+		this.getPlantas().add(casillero, semilla.sembrar(this));
+	}
 }

@@ -37,6 +37,12 @@ public class Semilla {
 	public boolean esTerrestre() {
 		return this.getTipoTerreno().esTerrestre();
 	}
+	public Planta sembrar(Terreno terreno) {
+		Planta planta = new Planta(this.puntosDeDaño, this.capacidadDefensiva,this.nombre, terreno);
+		return planta;
+	}
+	
+	
 	
 	
 }
