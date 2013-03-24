@@ -70,7 +70,7 @@ public class Zombie {
 				this.atacarPlanta(terreno, this.getAtaque());
 				this.meAtaco(terreno.siguiente().getPuntosDeDaño());
 			}
-			if (this.estoyMuerto()) {
+			if (this.estoyMuerto()) { // aca podriamos usar el ! estoyVivo, desp lo vemos
 				if (this.doyPremio()) {
 					if (this.doyPlanta()) {
 						this.getJardinZen().añadirSemilla();

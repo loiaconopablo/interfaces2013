@@ -50,6 +50,13 @@ public class Semilla {
 		return planta;
 	}
 	
+	public aplicarMejoraDefensiva (int porcentaje) {
+		this.capacidadDefensiva = (this.capacidadDefensiva+((this.capacidadDefensiva*porcentaje)/100))
+	}
+	
+	public aplicarMejoraOfensiva (int porcentaje){
+		this.puntosDeDa√±o = (this.puntosDeDa√+((this.puntosDeDa√*porcentaje)/100))
+	}
 	
 	
 	
