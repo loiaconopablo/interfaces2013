@@ -17,18 +17,11 @@ public class Terreno {
 	public TipoTerreno getTipoTerreno() {
 		return tipoTerreno;
 	}
-
-	public void setTipoTerreno(TipoTerreno tipoTerreno) {
-		this.tipoTerreno = tipoTerreno;
-	}
-
+	
 	public List<Planta> getPlantas() {
 		return this.plantas;
 	}
 
-	public void setPlantas(List<Planta> plantas) {
-		this.plantas = plantas;
-	}
 
 	/*
 	 * Siempre retorna una planta ya que antes de llamar a este metodo pregunta
@@ -50,7 +43,16 @@ public class Terreno {
 	}
 
 	public boolean estaVacio() {
-		return plantas.isEmpty();
+		boolean estaVacio = true;
+		for(Planta planta: this.getPlantas()){
+			if (planta == null){
+				estaVacio = estaVacio && true;
+			}
+			else{
+				estaVacio = estaVacio && false;
+			}
+		}
+		return estaVacio;
 	}
 
 	public void desplantame(Planta planta) {
@@ -66,10 +68,11 @@ public class Terreno {
 	}
 
 	public boolean estaLibre(int casillero) {
-		return this.getPlantas().get(casillero).equals(null);
+		return (this.getPlantas().get(casillero) == null);
 	}
 
 	public void añadirEn(Semilla semilla, int casillero) {
 		this.getPlantas().add(casillero, semilla.sembrar(this));
 	}
+	
 }
