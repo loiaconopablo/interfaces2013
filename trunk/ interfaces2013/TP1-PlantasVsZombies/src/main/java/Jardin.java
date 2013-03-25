@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.List;
 
 
@@ -5,6 +6,17 @@ public class Jardin {
 
 	private int recursos;
 	private List<Terreno> filas;
+	
+	public Jardin(int filasAcuaticas, int filasTerrestres){
+		this.recursos = 0;
+		this.filas = new LinkedList();
+		for (int i = 0; i < filasAcuaticas; i++) {
+			this.getFilas().add(new Terreno(new TipoTerrenoAcuatico()));
+		}
+		for (int i = 0; i < filasTerrestres; i++) {
+			this.getFilas().add(new Terreno(new TipoTerrenoTerrestre()));
+		}
+	}
 	
 	public int getRecursos() {
 		return recursos;
@@ -14,10 +26,6 @@ public class Jardin {
 		this.recursos = recursos;
 	}
 
-	public void sumarRecursos(int premio) {
-		this.setRecursos(this.getRecursos() + premio);
-	}
-
 	public List<Terreno> getFilas() {
 		return this.filas;
 	}
@@ -25,5 +33,8 @@ public class Jardin {
 		this.filas = filas;
     }
 
+    public void sumarRecursos(int premio) {
+		this.setRecursos(this.getRecursos() + premio);
+	}
 	
 }
