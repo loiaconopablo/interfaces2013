@@ -30,6 +30,11 @@ public class TestSemilla extends TestCase{
 		this.assertTrue(this.semilla.esTerrestre());
 	}
 	
+	public void testSembrar(){
+		Terreno terreno = new Terreno(this.tipoTerreno);
+		Planta retorno = new Planta(17,25,"Girasol",terreno);
+		this.assertEquals(retorno.getClass(), semilla.sembrar(terreno).getClass());
+	}
 	
 	
 }

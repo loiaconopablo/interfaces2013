@@ -7,12 +7,13 @@ public class Planta {
 	private Terreno terreno;
 	
 	public Planta(int puntosDeDaño, int capacidadDefensiva, String nombre,Terreno terreno){
-		this.capacidadDefensiva = capacidadDefensiva;
-		this.puntosDeDaño = puntosDeDaño;
+		this.setearCapacidadDefensiva(capacidadDefensiva);
+		this.setearPuntosDeDaño(puntosDeDaño);
 		this.nombre = nombre;
 		this.terreno = terreno;
 	}
 	
+
 	public Terreno getTerreno() {
 		return terreno;
 	}
@@ -45,5 +46,30 @@ public class Planta {
 			terreno.desplantame(this);
 			
 		}
+	}
+	
+	public void setearPuntosDeDaño(int puntosDeDaño) {
+		if (puntosDeDaño < 0){
+			this.setPuntosDeDaño(0);
+		}else{
+			if(puntosDeDaño > 100){
+				this.setPuntosDeDaño(100);
+			}else{
+				this.setPuntosDeDaño(puntosDeDaño);
+			}
+		}
+	}
+
+	public void setearCapacidadDefensiva(int capacidadDefensiva) {
+		if (capacidadDefensiva <= 0){
+			this.setCapacidadDefensiva(1);
+		}else{
+			if(capacidadDefensiva > 50){
+				this.setCapacidadDefensiva(50);
+			}else{
+				this.setCapacidadDefensiva(capacidadDefensiva);
+			}
+		}
+		
 	}
 }

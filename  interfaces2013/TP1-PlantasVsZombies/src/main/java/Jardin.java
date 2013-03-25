@@ -1,8 +1,10 @@
+import java.util.List;
+
 
 public class Jardin {
 
 	private int recursos;
-	private List <Terreno> filas;
+	private List<Terreno> filas;
 	
 	public int getRecursos() {
 		return recursos;
@@ -21,6 +23,7 @@ public class Jardin {
 	}
     public void setFilas(List<Terreno> filas) {
 		this.filas = filas;
+    }
 
 	
 }
