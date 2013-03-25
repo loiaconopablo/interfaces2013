@@ -1,5 +1,7 @@
 import java.util.List;
 
+import org.uqbar.commons.model.UserException;
+
 
 public class JardinZen {
 
@@ -32,7 +34,7 @@ public class JardinZen {
 	}
 
 	/*
-	 * Haceme acordar que veamos este añadirSemilla, así me lo explicas je
+	 * Haceme acordar que veamos este aï¿½adirSemilla, asï¿½ me lo explicas je
 	 * se que te basaste en el plataPremio= Plantas [ramdom(0,plantas.size-1)]
 	 * pero mucho no lo entiendo xq pusiste -0 y despues +0
 	 */
@@ -54,9 +56,9 @@ public class JardinZen {
 			if(terreno.estaLibre(casillero)){
 				terreno.aÃ±adirEn(semilla,casillero);
 			}
-			else { throw new UserException("Esta ocupado el casillero" } 
+			else { throw new UserException("Esta ocupado el casillero"); } 
 		}
-		else { throw new UserException("No se puede plantar esta planta ese terreno" }
+		else { throw new UserException("No se puede plantar esta planta ese terreno"); }
 	}
 /*
  * En este metodo mejorarA despues me ayudas a ver como hacemos para descontar
@@ -70,42 +72,17 @@ public class JardinZen {
 			int mejora = 20; boolean defensa = true; int costo = 50 ; 
 			break;
 		case 2 :  
-			int mejora = 20; boolean defensa = false; int costo = 50 ;
+			int mejora2 = 20; boolean defensa2 = false; int costo2 = 50 ;
 			break;
 		case 3 :  
-			int mejora = 35; boolean defensa = true; int costo = 100 ;
+			int mejora3 = 35; boolean defensa3 = true; int costo3 = 100 ;
 			break;
 		case 4 :  
-			int mejora = 35; boolean defensa = false; int costo = 100 ;
+			int mejora4 = 35; boolean defensa4 = false; int costo4 = 100 ;
 			break;
 		default:
 			throw new UserException("Tipo de mejora invalida");
-			break;
-	/*
- * Primero recorre la lista de semillas acuaticas haber si la encuentra ahi
- * y sino recorre la de terrestres
- */
-		for (Semilla semilla: semillasAcuaticas)// o que el parametro sea un string
-				{ 
-				if(semilla.getNombre().equals(semillaAmejorar.getNombre()) )
-					{ if (defensa)
-						{semilla.aplicarMejoraDefensiva(mejora) }
-					else 
-						{semilla.aplicarMejoraOfensiva(mejora) } 
-					}
-				}
-		
-		for (Semilla semilla: semillasTerrestres)// o que el parametro sea un string
-				{ 
-				if(semilla.getNombre().equals(semillaAmejorar.getNombre()) )
-					{ if (defensa)
-						{semilla.aplicarMejoraDefensiva(mejora) }
-					else 
-						{semilla.aplicarMejoraOfensiva(mejora) } 
-					}		
-								
-				}
 	}
 	
-	
+	}	
 }
