@@ -12,6 +12,15 @@ public class Zombie {
 	private String nombre;
 
 	
+	public Zombie(Jardin jardin, JardinZen jardinZen, int resistencia, int ataque, String nombre){
+		this.jardin = jardin;
+		this.jardinZen = jardinZen;
+		this.resistencia = resistencia;
+		this.resistenciaInicial = resistencia;
+		this.ataque = ataque;
+		this.nombre = nombre;
+	}
+	
 	public Jardin getJardin() {
 		return jardin;
 	}
@@ -70,7 +79,7 @@ public class Zombie {
 				this.atacarPlanta(terreno, this.getAtaque());
 				this.meAtaco(terreno.siguiente().getPuntosDeDaño());
 			}
-			if (this.estoyMuerto()) { // aca podriamos usar el ! estoyVivo, desp lo vemos
+			if (!this.estoyVivo()) { // aca podriamos usar el ! estoyVivo, desp lo vemos
 				if (this.doyPremio()) {
 					if (this.doyPlanta()) {
 						this.getJardinZen().añadirSemilla();
@@ -97,10 +106,6 @@ public class Zombie {
 	public boolean esMayorA(double numero) {
 		Random posibilidad = new Random();
 		return posibilidad.nextDouble() >= numero;
-	}
-
-	public boolean estoyMuerto() {
-		return this.getResistencia() <= 0;
 	}
 
 	private void meAtaco(int ataque) {

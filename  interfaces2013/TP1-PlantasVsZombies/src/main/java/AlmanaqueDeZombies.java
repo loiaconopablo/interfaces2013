@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.List;
 
 import org.uqbar.commons.model.UserException;
@@ -6,6 +7,10 @@ public class AlmanaqueDeZombies {
 
 	private List<Zombie> zombies;
 
+	public AlmanaqueDeZombies(){
+		this.zombies = new LinkedList<Zombie>();
+	}
+	
 	public List<Zombie> getZombies() {
 		return zombies;
 	}
