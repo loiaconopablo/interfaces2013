@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.List;
 
 import org.uqbar.commons.model.UserException;
@@ -8,6 +9,12 @@ public class JardinZen {
 	private List<Semilla> semillasAcuaticas;
 	private List<Semilla> semillasTerrestres;
 	private List<Semilla> semillasDePremio;
+	
+	public JardinZen(){
+		this.semillasAcuaticas = new LinkedList<Semilla>();
+		this.semillasTerrestres = new LinkedList<Semilla>();
+		this.semillasDePremio = new LinkedList<Semilla>();		
+	}
 	
 	public List<Semilla> getSemillasAcuaticas() {
 		return semillasAcuaticas;
@@ -41,9 +48,18 @@ public class JardinZen {
 	public void añadirSemilla() {
 		Semilla premio = this.getSemillasDePremio().get((int)(Math.random()*((this.getSemillasDePremio().size())-0))+0);
 		if (premio.esAcuatica()){
-			this.getSemillasAcuaticas().add(premio);
+			if(this.getSemillasAcuaticas().size() < 20){
+				this.getSemillasAcuaticas().add(premio);
+			}else{
+				throw new RuntimeException("Ya hay demasiadas semillasAcuaticas");
+			}
+			
 		}else{
-			this.getSemillasTerrestres().add(premio);
+			if(this.getSemillasTerrestres().size() < 20){
+				this.getSemillasTerrestres().add(premio);
+			}else{
+				throw new RuntimeException("Ya hay demasiadas semillas terrestres");
+			}
 		}
 	}
 	
