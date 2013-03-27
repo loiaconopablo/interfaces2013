@@ -98,7 +98,36 @@ public class JardinZen {
 			break;
 		default:
 			throw new UserException("Tipo de mejora invalida");
+			
+			/*
+			 * Primero recorre la lista de semillas acuaticas haber si la encuentra ahi
+			 * y sino recorre la de terrestres
+			 */
+					for (Semilla semilla: semillasAcuaticas)// o que el parametro sea un string
+							{ 
+							if(semilla.getNombre().equals(semillaAmejorar.getNombre()) )
+								{ if (defensa)
+									{semilla.aplicarMejoraDefensiva(mejora) }
+								else 
+									{semilla.aplicarMejoraOfensiva(mejora) } 
+								}
+							}
+					
+					for (Semilla semilla: semillasTerrestres)// o que el parametro sea un string
+							{ 
+							if(semilla.getNombre().equals(semillaAmejorar.getNombre()) )
+								{ if (defensa)
+									{semilla.aplicarMejoraDefensiva(mejora) }
+								else 
+									{semilla.aplicarMejoraOfensiva(mejora) } 
+								}		
+											
+							}
+				}
+				
+					
+			
+			
+			
 	}
 	
-	}	
-}
