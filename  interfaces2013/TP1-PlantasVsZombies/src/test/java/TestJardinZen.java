@@ -17,7 +17,7 @@ public class TestJardinZen extends TestCase {
 	private Terreno agua;
 
 	public void setUp() {
-		this.jardinZen = new JardinZen();
+		this.jardinZen = new JardinZen(new Jardin(2,2));
 		this.terrenoAcuatico = new TipoTerrenoAcuatico();
 		this.terrenoTerrestre = new TipoTerrenoTerrestre();
 		this.semillaDeGirasol = new Semilla(terrenoTerrestre, "Girasol", 25, 45);
