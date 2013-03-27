@@ -15,12 +15,12 @@ public class Zombie {
 	public Zombie(Jardin jardin, JardinZen jardinZen, int resistencia, int ataque, String nombre){
 		this.jardin = jardin;
 		this.jardinZen = jardinZen;
-		this.resistencia = resistencia;
-		this.resistenciaInicial = resistencia;
-		this.ataque = ataque;
 		this.nombre = nombre;
+		this.setearResistencia(resistencia);
+		this.setearAtaque(ataque);
 	}
 	
+
 	public Jardin getJardin() {
 		return jardin;
 	}
@@ -68,7 +68,36 @@ public class Zombie {
 	public void setResistenciaInicial(int resistenciaInicial) {
 		this.resistenciaInicial = resistenciaInicial;
 	}
+	
+	private void setearAtaque(int ataque) {
+		if (ataque < 10){
+			this.setAtaque(10);
+		}else{
+			if(ataque > 100){
+				this.setAtaque(100);
+			}else{
+				this.setAtaque(ataque);
+			}
+		}
+		
+	}
 
+	private void setearResistencia(int resistencia) {
+		if (resistencia < 50){
+			this.setResistencia(50);
+			this.setResistenciaInicial(50);
+		}else{
+			if(resistencia > 100){
+				this.setResistencia(100);
+				this.setResistenciaInicial(100);
+			}else{
+				this.setResistencia(resistencia);
+				this.setResistenciaInicial(resistencia);
+			}
+		}
+		
+	}
+	
 	public void atacar(Terreno terreno) {
 
 		while (this.estoyVivo()) {

@@ -62,11 +62,11 @@ public class Planta {
 
 	public void setearCapacidadDefensiva(int capacidadDefensiva) {
 		if (capacidadDefensiva <= 0){
-			this.setCapacidadDefensiva(1);//Mñana chequeemos esto, no se xq 1
+			this.setCapacidadDefensiva(1);
 		}else{
 			if(capacidadDefensiva > 50){
-				this.setCapacidadDefensiva(50);//Mñana chequeemos esto, no se xq 50
-			}else{							//Seria getCapacidadDefensiva+capacidadDefensiva
+				this.setCapacidadDefensiva(50);
+			}else{							
 				this.setCapacidadDefensiva(capacidadDefensiva);
 			}
 		}

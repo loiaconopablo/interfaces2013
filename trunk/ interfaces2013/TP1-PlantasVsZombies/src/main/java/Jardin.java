@@ -36,5 +36,9 @@ public class Jardin {
     public void sumarRecursos(int premio) {
 		this.setRecursos(this.getRecursos() + premio);
 	}
+
+	public void descontarRecursos(int costo) {
+		this.setRecursos(this.getRecursos() - costo);
+	}
 	
 }

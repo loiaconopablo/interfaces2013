@@ -3,19 +3,28 @@ import java.util.List;
 
 import org.uqbar.commons.model.UserException;
 
-
 public class JardinZen {
 
 	private List<Semilla> semillasAcuaticas;
 	private List<Semilla> semillasTerrestres;
 	private List<Semilla> semillasDePremio;
-	
-	public JardinZen(){
+	private Jardin jardin;
+
+	public JardinZen(Jardin jardin) {
 		this.semillasAcuaticas = new LinkedList<Semilla>();
 		this.semillasTerrestres = new LinkedList<Semilla>();
-		this.semillasDePremio = new LinkedList<Semilla>();		
+		this.semillasDePremio = new LinkedList<Semilla>();
+		this.setJardin(jardin);
 	}
-	
+
+	public void setJardin(Jardin jardin) {
+		this.jardin = jardin;
+	}
+
+	public Jardin getJardin() {
+		return jardin;
+	}
+
 	public List<Semilla> getSemillasAcuaticas() {
 		return semillasAcuaticas;
 	}
@@ -41,93 +50,117 @@ public class JardinZen {
 	}
 
 	/*
-	 * Haceme acordar que veamos este a�adirSemilla, as� me lo explicas je
-	 * se que te basaste en el plataPremio= Plantas [ramdom(0,plantas.size-1)]
-	 * pero mucho no lo entiendo xq pusiste -0 y despues +0
+	 * Haceme acordar que veamos este a�adirSemilla, as� me lo explicas je se
+	 * que te basaste en el plataPremio= Plantas [ramdom(0,plantas.size-1)] pero
+	 * mucho no lo entiendo xq pusiste -0 y despues +0
 	 */
 	public void añadirSemilla() {
-		Semilla premio = this.getSemillasDePremio().get((int)(Math.random()*((this.getSemillasDePremio().size())-0))+0);
-		if (premio.esAcuatica()){
-			if(this.getSemillasAcuaticas().size() < 20){
+		Semilla premio = this
+				.getSemillasDePremio()
+				.get((int) (Math.random() * ((this.getSemillasDePremio().size()) - 0)) + 0);
+		if (premio.esAcuatica()) {
+			if (this.getSemillasAcuaticas().size() < 20) {
 				this.getSemillasAcuaticas().add(premio);
-			}else{
-				throw new RuntimeException("Ya hay demasiadas semillasAcuaticas");
+			} else {
+				throw new RuntimeException(
+						"Ya hay demasiadas semillasAcuaticas");
 			}
-			
-		}else{
-			if(this.getSemillasTerrestres().size() < 20){
+
+		} else {
+			if (this.getSemillasTerrestres().size() < 20) {
 				this.getSemillasTerrestres().add(premio);
-			}else{
-				throw new RuntimeException("Ya hay demasiadas semillas terrestres");
+			} else {
+				throw new RuntimeException(
+						"Ya hay demasiadas semillas terrestres");
 			}
 		}
 	}
-	
+
 	/*
-	 * Agregue unas excepciones para que arroje en caso de que falle
-	 * despues si queres lo cambiamos
-	*/
-	public void sembrarEn(Semilla semilla, Terreno terreno, int casillero){
-		if ((semilla.esAcuatica() && terreno.esAcuatico()) || (semilla.esTerrestre() && terreno.esTerrestre())){
-			if(terreno.estaLibre(casillero)){
-				terreno.añadirEn(semilla,casillero);
+	 * Agregue unas excepciones para que arroje en caso de que falle despues si
+	 * queres lo cambiamos
+	 */
+	public void sembrarEn(Semilla semilla, Terreno terreno, int casillero) {
+		if ((semilla.esAcuatica() && terreno.esAcuatico())
+				|| (semilla.esTerrestre() && terreno.esTerrestre())) {
+			if (terreno.estaLibre(casillero)) {
+				terreno.añadirEn(semilla, casillero);
+			} else {
+				throw new UserException("Esta ocupado el casillero");
 			}
-			else { throw new UserException("Esta ocupado el casillero"); } 
+		} else {
+			throw new UserException(
+					"No se puede plantar esta planta ese terreno");
 		}
-		else { throw new UserException("No se puede plantar esta planta ese terreno"); }
 	}
-/*
- * En este metodo mejorarA despues me ayudas a ver como hacemos para descontar
- * el costo, tendria que conocer al jardin, y decirle, descontar(costo) o algo
- * asi.
- */
-	
-	public void mejorarA (Semilla semillaAmejorar, int tipoMejora) // esto vemos si lo hacemo asi o
-	{	switch(tipoMejora) { 
-		case 1 :  
-			int mejora = 20; boolean defensa = true; int costo = 50 ; 
+
+	/*
+	 * En este metodo mejorarA despues me ayudas a ver como hacemos para
+	 * descontar el costo, tendria que conocer al jardin, y decirle,
+	 * descontar(costo) o algo asi.
+	 */
+
+	public void mejorarA(Semilla semillaAmejorar, int tipoMejora) {// esto vemos
+																	// si lo
+																	// hacemo
+																	// asi o
+		int mejora;
+		int costo;
+		boolean defensa;
+
+		switch (tipoMejora) {
+		case 1:
+			mejora = 20;
+			defensa = true;
+			costo = 50;
 			break;
-		case 2 :  
-			int mejora2 = 20; boolean defensa2 = false; int costo2 = 50 ;
+		case 2:
+			mejora = 20;
+			defensa = false;
+			costo = 50;
 			break;
-		case 3 :  
-			int mejora3 = 35; boolean defensa3 = true; int costo3 = 100 ;
+		case 3:
+			mejora = 35;
+			defensa = true;
+			costo = 100;
 			break;
-		case 4 :  
-			int mejora4 = 35; boolean defensa4 = false; int costo4 = 100 ;
+		case 4:
+			mejora = 35;
+			defensa = false;
+			costo = 100;
 			break;
 		default:
 			throw new UserException("Tipo de mejora invalida");
-			
-			/*
-			 * Primero recorre la lista de semillas acuaticas haber si la encuentra ahi
-			 * y sino recorre la de terrestres
-			 */
-					for (Semilla semilla: semillasAcuaticas)// o que el parametro sea un string
-							{ 
-							if(semilla.getNombre().equals(semillaAmejorar.getNombre()) )
-								{ if (defensa)
-									{semilla.aplicarMejoraDefensiva(mejora) }
-								else 
-									{semilla.aplicarMejoraOfensiva(mejora) } 
-								}
-							}
-					
-					for (Semilla semilla: semillasTerrestres)// o que el parametro sea un string
-							{ 
-							if(semilla.getNombre().equals(semillaAmejorar.getNombre()) )
-								{ if (defensa)
-									{semilla.aplicarMejoraDefensiva(mejora) }
-								else 
-									{semilla.aplicarMejoraOfensiva(mejora) } 
-								}		
-											
-							}
+		}
+		/*
+		 * Primero recorre la lista de semillas acuaticas haber si la encuentra
+		 * ahi y sino recorre la de terrestres
+		 */
+		for (Semilla semilla : semillasAcuaticas)// o que el parametro sea
+													// un string
+		{
+			if (semilla.getNombre().equals(semillaAmejorar.getNombre())) {
+				if (defensa) {
+					semilla.aplicarMejoraDefensiva(mejora);
+					this.getJardin().descontarRecursos(costo);
+				} else {
+					semilla.aplicarMejoraOfensiva(mejora);
 				}
-				
-					
-			
-			
-			
+			}
+		}
+
+		for (Semilla semilla : semillasTerrestres)// o que el parametro sea
+													// un string
+		{
+			if (semilla.getNombre().equals(semillaAmejorar.getNombre())) {
+				if (defensa) {
+					semilla.aplicarMejoraDefensiva(mejora);
+				} else {
+					semilla.aplicarMejoraOfensiva(mejora);
+				}
+			}
+
+		}
 	}
-	
+
+}
