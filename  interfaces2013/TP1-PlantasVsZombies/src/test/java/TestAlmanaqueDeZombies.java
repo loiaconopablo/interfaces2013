@@ -16,7 +16,7 @@ public class TestAlmanaqueDeZombies extends TestCase {
 	
 	public void testBuscarCasoQueEncuentraAlZombie(){
 		Jardin jardin = new Jardin(2,4);
-		JardinZen jardinZen = new JardinZen(jardin);
+		JardinZen jardinZen = new JardinZen(jardin,null);
 		Zombie zombie = new Zombie(jardin, jardinZen,25,45,"Joe");
 		this.almanaque.getZombies().add(new Zombie(jardin, jardinZen,25,45,"Billy"));
 		this.almanaque.getZombies().add(zombie);

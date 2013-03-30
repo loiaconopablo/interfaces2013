@@ -9,7 +9,7 @@ public class TestZombie extends TestCase {
 	
 	public void setUp(){
 		this.jardin = new Jardin(2,2);
-		this.jardinZen = new JardinZen(this.jardin);
+		this.jardinZen = new JardinZen(this.jardin,null);
 		this.zombie = new Zombie(this.jardin,this.jardinZen,50,50, "Jose");
 	}
 	

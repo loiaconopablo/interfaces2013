@@ -17,6 +17,7 @@ public class TestSemilla extends TestCase{
 		this.assertEquals(this.semilla.getNombre(), "Girasol");
 		this.assertEquals(this.semilla.getPuntosDeDaño(), 10);
 		this.assertEquals(this.semilla.getCapacidadDefensiva(),20);
+		this.assertEquals(this.semilla.getMejorasAplicadas().size(),0);
 	}
 
 	public void testEsAcuatica(){

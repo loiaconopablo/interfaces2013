@@ -9,12 +9,14 @@ public class JardinZen {
 	private List<Semilla> semillasTerrestres;
 	private List<Semilla> semillasDePremio;
 	private Jardin jardin;
+	private List<Mejora> mejoras;
 
-	public JardinZen(Jardin jardin) {
+	public JardinZen(Jardin jardin, List<Mejora> mejoras) {
 		this.semillasAcuaticas = new LinkedList<Semilla>();
 		this.semillasTerrestres = new LinkedList<Semilla>();
 		this.semillasDePremio = new LinkedList<Semilla>();
 		this.setJardin(jardin);
+		this.mejoras = mejoras;
 	}
 
 	public void setJardin(Jardin jardin) {
@@ -57,7 +59,7 @@ public class JardinZen {
 	public void añadirSemilla() {
 		Semilla premio = this
 				.getSemillasDePremio()
-				.get((int) (Math.random() * ((this.getSemillasDePremio().size()) - 0)) + 0);
+				.get((int) (Math.random() * (((this.getSemillasDePremio().size()-1)) - 0)) + 0);
 		if (premio.esAcuatica()) {
 			if (this.getSemillasAcuaticas().size() < 20) {
 				this.getSemillasAcuaticas().add(premio);
@@ -76,10 +78,7 @@ public class JardinZen {
 		}
 	}
 
-	/*
-	 * Agregue unas excepciones para que arroje en caso de que falle despues si
-	 * queres lo cambiamos
-	 */
+	
 	public void sembrarEn(Semilla semilla, Terreno terreno, int casillero) {
 		if ((semilla.esAcuatica() && terreno.esAcuatico())
 				|| (semilla.esTerrestre() && terreno.esTerrestre())) {
@@ -94,12 +93,18 @@ public class JardinZen {
 		}
 	}
 
+	public void mejorarA(Semilla semilla, Mejora mejora){
+		semilla.aplicarMejora(mejora);
+		this.getJardin().descontarRecursos(mejora.getCosto());
+	}
+	
+	
 	/*
 	 * En este metodo mejorarA despues me ayudas a ver como hacemos para
 	 * descontar el costo, tendria que conocer al jardin, y decirle,
 	 * descontar(costo) o algo asi.
 	 */
-
+/**
 	public void mejorarA(Semilla semillaAmejorar, int tipoMejora) {// esto vemos
 																	// si lo
 																	// hacemo
@@ -136,6 +141,7 @@ public class JardinZen {
 		 * Primero recorre la lista de semillas acuaticas haber si la encuentra
 		 * ahi y sino recorre la de terrestres
 		 */
+	/**
 		for (Semilla semilla : semillasAcuaticas)// o que el parametro sea
 													// un string
 		{
@@ -162,5 +168,5 @@ public class JardinZen {
 
 		}
 	}
-
+**/
 }
