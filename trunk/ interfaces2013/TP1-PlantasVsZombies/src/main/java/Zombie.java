@@ -121,7 +121,7 @@ public class Zombie {
 	}
 
 	private int darPremio() {
-		return (int)(Math.random()*(((this.getResistenciaInicial()-1)/3)-1))+1;
+		return (int)(Math.random()*(((this.getResistenciaInicial()/3)-1))+1);
 	}
 
 	private boolean doyPlanta() {
