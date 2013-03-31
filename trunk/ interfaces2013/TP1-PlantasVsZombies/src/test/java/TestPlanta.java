@@ -21,14 +21,14 @@ public class TestPlanta extends TestCase {
 	
 	public void testMeAtacoYSigueViva(){
 		this.terreno.getPlantas().add(4, this.planta);
-		this.planta.meAtaco(20, this.terreno);
+		this.planta.recibirDaño(20);
 		this.assertEquals(7, this.planta.getCapacidadDefensiva());
 	}
 	
 	public void testMeAtacoMuere(){
 		this.terreno.getPlantas().add(4, this.planta);
-		this.planta.meAtaco(30, this.terreno);
-		this.assertNull(this.terreno.getPlantas().get(4));
+		this.planta.recibirDaño(30);
+		this.assertTrue(this.terreno.getPlantas().get(4).getCapacidadDefensiva()<=0);
 	}
 	
 	public void testSetearCapacidadDefensivaDentroDeRango(){

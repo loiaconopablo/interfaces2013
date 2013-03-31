@@ -7,7 +7,7 @@ public class Terreno {
 	private List<Planta> plantas;
 
 	public Terreno(TipoTerreno terreno) {// Agregue que se le pase el tipo de
-		this.plantas = new LinkedList();									// Terreno
+		this.plantas = new LinkedList<Planta>();									// Terreno
 		this.tipoTerreno = terreno;
 		for (int i = 0; i < 5; i++) {
 			this.getPlantas().add(null);

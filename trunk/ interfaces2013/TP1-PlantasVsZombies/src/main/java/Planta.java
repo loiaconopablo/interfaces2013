@@ -39,13 +39,8 @@ public class Planta {
 		this.nombre = nombre;
 	}
 	
-	public void meAtaco(int ataque,Terreno terreno) {
-		
+	public void recibirDaño(int ataque) {
 		this.setCapacidadDefensiva(this.getCapacidadDefensiva() - ataque);
-		if(this.capacidadDefensiva <= 0){
-			terreno.desplantame(this);
-			
-		}
 	}
 	
 	public void setearPuntosDeDaño(int puntosDeDaño) {
