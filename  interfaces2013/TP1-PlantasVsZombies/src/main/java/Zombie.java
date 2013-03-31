@@ -98,55 +98,38 @@ public class Zombie {
 		
 	}
 	
-	public void atacar(Terreno terreno) {
+//	public void atacar(Terreno terreno) {
+//
+//		while (this.estoyVivo()) {
+//
+//			if (terreno.estaVacio()) {
+//				throw new UserException("Perdiste el juego!!!");
+//			} else {
+//				this.atacarPlanta(terreno, this.getAtaque());
+//				this.efectuarAtaqueDePlanta(terreno.siguiente().getPuntosDeDaño());
+//			}
+//			if (!this.estoyVivo()) { // aca podriamos usar el ! estoyVivo, desp lo vemos
+//				if (this.doyPremio()) {
+//					if (this.doyPlanta()) {
+//						this.getJardinZen().añadirSemilla();
+//					}else{
+//						this.getJardin().sumarRecursos(this.darPremio());
+//					}
+//				}
+//			}
+//		}
+//	}
 
-		while (this.estoyVivo()) {
-
-			if (terreno.estaVacio()) {
-				throw new UserException("Perdiste el juego!!!");
-			} else {
-				this.atacarPlanta(terreno, this.getAtaque());
-				this.meAtaco(terreno.siguiente().getPuntosDeDaño());
-			}
-			if (!this.estoyVivo()) { // aca podriamos usar el ! estoyVivo, desp lo vemos
-				if (this.doyPremio()) {
-					if (this.doyPlanta()) {
-						this.getJardinZen().añadirSemilla();
-					}else{
-						this.getJardin().sumarRecursos(this.darPremio());
-					}
-				}
-			}
-		}
-	}
-
-	private int darPremio() {
+	public int darPremio() {
 		return (int)(Math.random()*(((this.getResistenciaInicial()/3)-1))+1);
 	}
 
-	private boolean doyPlanta() {
-		return (!this.esMayorA(0.25));
-	}
-
-	public boolean doyPremio() {
-		return this.esMayorA(0.5);
-	}
-
-	public boolean esMayorA(double numero) {
-		Random posibilidad = new Random();
-		return posibilidad.nextDouble() >= numero;
-	}
-
-	private void meAtaco(int ataque) {
+	public void recibirDaño(int ataque) {
 		this.setResistencia(this.getResistencia() - ataque);
 	}
 
-	private boolean estoyVivo() {
+	public boolean estaVivo() {
 		return this.resistencia > 0;
-	}
-
-	private void atacarPlanta(Terreno terreno, int ataque) {
-		terreno.siguiente().meAtaco(ataque, terreno);
 	}
 
 }
