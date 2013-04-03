@@ -1,3 +1,4 @@
+package plantaszombies;
 
 public class Mejora {
 	
@@ -6,6 +7,13 @@ public class Mejora {
 	private Tipo tipo;
 	private int porcDeMejora;
 	
+	public Mejora(String nombre, int costo, Tipo tipo, int mejora){
+		this.nombre = nombre;
+		this.costo = costo;
+		this.tipo = tipo;
+		this.porcDeMejora = mejora;
+	}
+
 	
 	public int getCosto() {
 		return costo;
@@ -13,13 +21,6 @@ public class Mejora {
 	
 	public Tipo getTipo() {
 		return tipo;
-	}
-
-	public Mejora(String nombre, int costo, Tipo tipo, int mejora){
-		this.nombre = nombre;
-		this.costo = costo;
-		this.tipo = tipo;
-		this.porcDeMejora = mejora;
 	}
 
 	public int getporcDeMejora() {

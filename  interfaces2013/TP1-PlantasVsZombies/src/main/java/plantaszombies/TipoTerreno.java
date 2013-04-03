@@ -1,5 +1,6 @@
+package plantaszombies;
 
-public abstract class TipoTerreno{
+public abstract class TipoTerreno {
 
 	public abstract boolean esTerrestre();
 	

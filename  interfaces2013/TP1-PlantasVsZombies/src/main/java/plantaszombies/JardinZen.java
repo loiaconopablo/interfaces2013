@@ -1,3 +1,4 @@
+package plantaszombies;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -57,40 +58,31 @@ public class JardinZen {
 	 * mucho no lo entiendo xq pusiste -0 y despues +0
 	 */
 	public void aniadirSemilla() {
-		Semilla premio = this
-				.getSemillasDePremio()
-				.get((int) (Math.random() * (((this.getSemillasDePremio().size()-1)) - 0)) + 0);
+		Semilla premio = this.getSemillaRandom();
 		if (premio.esAcuatica()) {
 			if (this.getSemillasAcuaticas().size() < 20) {
 				this.getSemillasAcuaticas().add(premio);
 			} else {
-				throw new RuntimeException(
-						"Ya hay demasiadas semillasAcuaticas");
+				throw new UserException("Ya hay demasiadas semillas Acuaticas");
 			}
-
 		} else {
 			if (this.getSemillasTerrestres().size() < 20) {
 				this.getSemillasTerrestres().add(premio);
 			} else {
-				throw new RuntimeException(
-						"Ya hay demasiadas semillas terrestres");
+				throw new UserException("Ya hay demasiadas semillas terrestres");
 			}
 		}
 	}
 
+	protected Semilla getSemillaRandom() {
+//		return CollectionUtils.randomElement(this.getSemillasDePremio());
+		return this.getSemillasDePremio()
+				.get((int) (Math.random() * (((this.getSemillasDePremio().size()-1)) - 0)) + 0);
+	}
+
 	
 	public void sembrarEn(Semilla semilla, Terreno terreno, int casillero) {
-		if ((semilla.esAcuatica() && terreno.esAcuatico())
-				|| (semilla.esTerrestre() && terreno.esTerrestre())) {
-			if (terreno.estaLibre(casillero)) {
-				terreno.aniadirEn(semilla, casillero);
-			} else {
-				throw new UserException("Esta ocupado el casillero");
-			}
-		} else {
-			throw new UserException(
-					"No se puede plantar esta planta ese terreno");
-		}
+		terreno.sembrar(semilla, casillero);
 	}
 
 	public void mejorarA(Semilla semilla, Mejora mejora){

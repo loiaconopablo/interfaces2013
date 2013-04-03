@@ -1,5 +1,8 @@
+package plantaszombies;
 import java.util.LinkedList;
 import java.util.List;
+
+import org.uqbar.commons.model.UserException;
 
 public class Terreno {
 
@@ -73,6 +76,20 @@ public class Terreno {
 
 	public void aniadirEn(Semilla semilla, int casillero) {
 		this.getPlantas().add(casillero, semilla.sembrar(this));
+	}
+
+	public void sembrar(Semilla semilla, int casillero) {
+		if (!this.estaLibre(casillero)) {
+			throw new UserException("Esta ocupado el casillero");
+		}
+		if (!this.puedePlantarseAca(semilla)) {
+			throw new UserException("No se puede plantar esta planta ese terreno");
+		}
+		this.aniadirEn(semilla, casillero);
+	}
+
+	protected boolean puedePlantarseAca(Semilla semilla) {
+		return (semilla.esAcuatica() && this.esAcuatico()) || (semilla.esTerrestre() && this.esTerrestre());
 	}
 	
 }
