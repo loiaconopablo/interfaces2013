@@ -4,39 +4,24 @@ import org.uqbar.commons.model.UserException;
 
 public class Zombie {
 	
-	private Jardin jardin;
-	private JardinZen jardinZen;
+//	private Jardin jardin;
+// private JardinZen jardinZen;
 	private int resistencia;
 	private int resistenciaInicial;
 	private int ataque;
 	private String nombre;
 
 	
-	public Zombie(Jardin jardin, JardinZen jardinZen, int resistencia, int ataque, String nombre){
-		this.jardin = jardin;
-		this.jardinZen = jardinZen;
+	public Zombie(int resistencia, int ataque, String nombre){
+		//this.jardin = jardin;
+		//this.jardinZen = jardinZen;
 		this.nombre = nombre;
 		this.setearResistencia(resistencia);
 		this.setearAtaque(ataque);
 	}
 	
 
-	public Jardin getJardin() {
-		return jardin;
-	}
-
-	public void setJardin(Jardin jardin) {
-		this.jardin = jardin;
-	}
-
-	public JardinZen getJardinZen() {
-		return jardinZen;
-	}
-
-	public void setJardinZen(JardinZen jardinZen) {
-		this.jardinZen = jardinZen;
-	}
-
+	
 	public int getResistencia() {
 		return resistencia;
 	}
@@ -124,7 +109,7 @@ public class Zombie {
 		return (int)(Math.random()*(((this.getResistenciaInicial()/3)-1))+1);
 	}
 
-	public void recibirDaño(int ataque) {
+	public void recibirDanio(int ataque) {
 		this.setResistencia(this.getResistencia() - ataque);
 	}
 

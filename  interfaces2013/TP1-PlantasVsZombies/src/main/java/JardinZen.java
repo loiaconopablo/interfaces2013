@@ -56,7 +56,7 @@ public class JardinZen {
 	 * que te basaste en el plataPremio= Plantas [ramdom(0,plantas.size-1)] pero
 	 * mucho no lo entiendo xq pusiste -0 y despues +0
 	 */
-	public void añadirSemilla() {
+	public void aniadirSemilla() {
 		Semilla premio = this
 				.getSemillasDePremio()
 				.get((int) (Math.random() * (((this.getSemillasDePremio().size()-1)) - 0)) + 0);
@@ -83,7 +83,7 @@ public class JardinZen {
 		if ((semilla.esAcuatica() && terreno.esAcuatico())
 				|| (semilla.esTerrestre() && terreno.esTerrestre())) {
 			if (terreno.estaLibre(casillero)) {
-				terreno.añadirEn(semilla, casillero);
+				terreno.aniadirEn(semilla, casillero);
 			} else {
 				throw new UserException("Esta ocupado el casillero");
 			}

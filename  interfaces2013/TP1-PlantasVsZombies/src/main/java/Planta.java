@@ -1,17 +1,17 @@
 
 public class Planta {
 
-	private int puntosDeDaño;
+	private int puntosDeDanio;
 	private int capacidadDefensiva;
 	private String nombre;
 	private Terreno terreno;
 	
-	public Planta(int puntosDeDaño, int capacidadDefensiva, String nombre,Terreno terreno){
+	public Planta(int puntosDeDanio, int capacidadDefensiva, String nombre,Terreno terreno){
 		this.setearCapacidadDefensiva(capacidadDefensiva);
-		this.setearPuntosDeDaño(puntosDeDaño);
+		this.setearPuntosDeDanio(puntosDeDanio);
 		this.nombre = nombre;
 		this.terreno = terreno;
-	}
+		}
 	
 
 	public Terreno getTerreno() {
@@ -20,11 +20,11 @@ public class Planta {
 	public void setTerreno(Terreno terreno) {
 		this.terreno = terreno;
 	}
-	public int getPuntosDeDaño() {
-		return puntosDeDaño;
+	public int getPuntosDeDanio() {
+		return puntosDeDanio;
 	}
-	public void setPuntosDeDaño(int puntosDeDaño) {
-		this.puntosDeDaño = puntosDeDaño;
+	public void setPuntosDeDanio(int puntosDeDanio) {
+		this.puntosDeDanio = puntosDeDanio;
 	}
 	public int getCapacidadDefensiva() {
 		return capacidadDefensiva;
@@ -39,18 +39,18 @@ public class Planta {
 		this.nombre = nombre;
 	}
 	
-	public void recibirDaño(int ataque) {
+	public void recibirDanio(int ataque) {
 		this.setCapacidadDefensiva(this.getCapacidadDefensiva() - ataque);
 	}
 	
-	public void setearPuntosDeDaño(int puntosDeDaño) {
-		if (puntosDeDaño < 0){
-			this.setPuntosDeDaño(0);
+	public void setearPuntosDeDanio(int puntosDeDanio) {
+		if (puntosDeDanio < 0){
+			this.setPuntosDeDanio(0);
 		}else{
-			if(puntosDeDaño > 100){
-				this.setPuntosDeDaño(100);
+			if(puntosDeDanio > 100){
+				this.setPuntosDeDanio(100);
 			}else{
-				this.setPuntosDeDaño(puntosDeDaño);
+				this.setPuntosDeDanio(puntosDeDanio);
 			}
 		}
 	}

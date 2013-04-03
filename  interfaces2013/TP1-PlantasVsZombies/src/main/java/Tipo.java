@@ -1,6 +1,6 @@
 
 public enum Tipo {
 
-	Defensiva, Ofensiva;
+	DEFENSIVA, OFENSIVA;
 	
 }

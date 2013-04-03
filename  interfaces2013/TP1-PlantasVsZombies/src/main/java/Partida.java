@@ -36,12 +36,12 @@ public class Partida {
 			} else {
 				Planta siguiente = terreno.siguiente();
 				this.efectuarAtaqueZombie(siguiente, this.getZombie().getAtaque());
-				this.getZombie().recibirDaño(siguiente.getPuntosDeDaño());
+				this.getZombie().recibirDanio(siguiente.getPuntosDeDanio());
 			}
 			if (!this.getZombie().estaVivo()) { // aca podriamos usar el ! estoyVivo, desp lo vemos
 				if (this.daPremio()) {
 					if (this.daPlanta()) {
-						this.getJardinZen().añadirSemilla();
+						this.getJardinZen().aniadirSemilla();
 					}else{
 						this.getJardin().sumarRecursos(this.getZombie().darPremio());
 					}
@@ -51,7 +51,7 @@ public class Partida {
 	}
 
 	private void efectuarAtaqueZombie(Planta planta, int ataque) {
-		planta.recibirDaño(ataque);
+		planta.recibirDanio(ataque);
 		if(planta.getCapacidadDefensiva()<=0){
 			planta.getTerreno().desplantame(planta);
 		}

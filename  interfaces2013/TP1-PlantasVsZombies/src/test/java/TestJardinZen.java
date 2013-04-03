@@ -30,20 +30,20 @@ public class TestJardinZen extends TestCase {
 		this.tierra = new Terreno(terrenoTerrestre);
 	}
 
-	public void testAñadirSemillaCuandoPuedeAñadirAcuaticas() {
+	public void testAniadirSemillaCuandoPuedeAniadirAcuaticas() {
 		this.assertEquals(this.jardinZen.getSemillasAcuaticas().size(), 0);
 		this.jardinZen.getSemillasDePremio().add(semillaDeSeaShooter);
-		this.jardinZen.añadirSemilla();
+		this.jardinZen.aniadirSemilla();
 		this.assertEquals(this.jardinZen.getSemillasAcuaticas().size(), 1);
 	}
 
-	public void testAñadirSemillaCuandoNoPuedeAñadirAcuaticas() {
+	public void testAniadirSemillaCuandoNoPuedeAniadirAcuaticas() {
 		this.assertEquals(this.jardinZen.getSemillasAcuaticas().size(), 0);
 		for (int i = 0; i <= 20; i++) {
 			this.jardinZen.getSemillasDePremio().add(null);
 		}
 		try {
-			this.jardinZen.añadirSemilla();
+			this.jardinZen.aniadirSemilla();
 			fail("Hay demasiadas semillas");
 		} catch (RuntimeException e) {
 		}

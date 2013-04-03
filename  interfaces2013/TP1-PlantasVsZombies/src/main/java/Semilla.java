@@ -6,14 +6,14 @@ public class Semilla {
 	
 	private TipoTerreno tipoTerreno;
 	private String nombre;
-	private int puntosDeDaño;
+	private int puntosDeDanio;
 	private int capacidadDefensiva;
 	private List<Mejora> mejorasAplicadas;
 	
-	public Semilla(TipoTerreno terreno, String nombre, int puntosDeDaño, int capacidadDefensiva){
+	public Semilla(TipoTerreno terreno, String nombre, int puntosDeDanio, int capacidadDefensiva){
 		this.tipoTerreno = terreno;
 		this.nombre = nombre;
-		this.puntosDeDaño = puntosDeDaño;
+		this.puntosDeDanio = puntosDeDanio;
 		this.capacidadDefensiva = capacidadDefensiva;
 		this.mejorasAplicadas = new LinkedList<Mejora>();
 	}
@@ -33,8 +33,8 @@ public class Semilla {
 		return nombre;
 	}
 	
-	public int getPuntosDeDaño() {
-		return puntosDeDaño;
+	public int getPuntosDeDanio() {
+		return puntosDeDanio;
 	}
 	public int getCapacidadDefensiva() {
 		return capacidadDefensiva;
@@ -47,29 +47,31 @@ public class Semilla {
 		return this.getTipoTerreno().esTerrestre();
 	}
 	public Planta sembrar(Terreno terreno) {
-		Planta planta = new Planta(this.definirPuntosDeDaño(), this.definirCapacidadDefensiva(),this.nombre, terreno);
+		Planta planta = new Planta(this.definirPuntosDeDanio(), this.definirCapacidadDefensiva(),this.nombre, terreno);
 		return planta;
 	}
 	
 	public int definirCapacidadDefensiva() {
 		int capacidad = this.capacidadDefensiva;
 		for(Mejora mejora : this.mejorasAplicadas){
-			if (mejora.getTipo() == Tipo.Defensiva){
-				capacidad += mejora.getCosto();
+			if (mejora.getTipo() == Tipo.DEFENSIVA){
+				//capacidad+= mejora.getCosto(); esto lo cambie
+				capacidad = (((capacidad *mejora.getporcDeMejora())/100)+capacidad)  ;//ESTo lo cambie
 			}
 		}
 		return capacidad;
 	}
 
 
-	public int definirPuntosDeDaño() {
-		int daño = this.puntosDeDaño;
+	public int definirPuntosDeDanio() {
+		int danio = this.puntosDeDanio;
 		for(Mejora mejora : this.mejorasAplicadas){
-			if (mejora.getTipo() == Tipo.Ofensiva){
-				daño += mejora.getCosto();
+			if (mejora.getTipo() == Tipo.OFENSIVA){
+				//danio += mejora.getCosto();
+				danio = (((danio *mejora.getporcDeMejora())/100)+danio)  ;//ESTo lo cambie
 			}
 		}
-		return daño;	
+		return danio;	
 	}
 
 
