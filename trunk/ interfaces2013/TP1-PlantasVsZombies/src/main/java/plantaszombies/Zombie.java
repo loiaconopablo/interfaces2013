@@ -1,11 +1,13 @@
+package plantaszombies;
 import java.util.Random;
 
 import org.uqbar.commons.model.UserException;
 
+/**
+ * 
+ * @author usuario
+ */
 public class Zombie {
-	
-//	private Jardin jardin;
-// private JardinZen jardinZen;
 	private int resistencia;
 	private int resistenciaInicial;
 	private int ataque;
@@ -13,15 +15,11 @@ public class Zombie {
 
 	
 	public Zombie(int resistencia, int ataque, String nombre){
-		//this.jardin = jardin;
-		//this.jardinZen = jardinZen;
 		this.nombre = nombre;
 		this.setearResistencia(resistencia);
 		this.setearAtaque(ataque);
 	}
-	
 
-	
 	public int getResistencia() {
 		return resistencia;
 	}
@@ -83,28 +81,6 @@ public class Zombie {
 		
 	}
 	
-//	public void atacar(Terreno terreno) {
-//
-//		while (this.estoyVivo()) {
-//
-//			if (terreno.estaVacio()) {
-//				throw new UserException("Perdiste el juego!!!");
-//			} else {
-//				this.atacarPlanta(terreno, this.getAtaque());
-//				this.efectuarAtaqueDePlanta(terreno.siguiente().getPuntosDeDaño());
-//			}
-//			if (!this.estoyVivo()) { // aca podriamos usar el ! estoyVivo, desp lo vemos
-//				if (this.doyPremio()) {
-//					if (this.doyPlanta()) {
-//						this.getJardinZen().añadirSemilla();
-//					}else{
-//						this.getJardin().sumarRecursos(this.darPremio());
-//					}
-//				}
-//			}
-//		}
-//	}
-
 	public int darPremio() {
 		return (int)(Math.random()*(((this.getResistenciaInicial()/3)-1))+1);
 	}
@@ -117,4 +93,30 @@ public class Zombie {
 		return this.resistencia > 0;
 	}
 
+	public void teAtaca(Planta planta, Partida partida) {
+		this.recibirDanio(planta.getPuntosDeDanio());
+		if (!this.estaVivo()) { 
+			if (daPremio()) {
+				if (daPlanta()) {
+					partida.aniadirSemilla();
+				} else {
+					partida.sumarRecursos(this.darPremio());
+				}
+			}
+		}
+	}
+
+	public boolean daPlanta() {
+		return (!randomEsMayorA(0.25));
+	}
+
+	public boolean daPremio() {
+		return randomEsMayorA(0.5);
+	}
+
+	public static boolean randomEsMayorA(double numero) {
+		Random posibilidad = new Random();
+		return posibilidad.nextDouble() >= numero;
+	}
+	
 }

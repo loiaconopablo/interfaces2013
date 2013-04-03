@@ -1,3 +1,4 @@
+package plantaszombies;
 import junit.framework.TestCase;
 
 public class TestMejora  extends TestCase{

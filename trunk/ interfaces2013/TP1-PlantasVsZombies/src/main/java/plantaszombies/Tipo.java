@@ -1,3 +1,4 @@
+package plantaszombies;
 
 public enum Tipo {
 

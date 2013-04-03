@@ -1,3 +1,6 @@
+package plantaszombies;
+
+import org.uqbar.commons.model.UserException;
 
 public class Planta {
 
@@ -44,15 +47,10 @@ public class Planta {
 	}
 	
 	public void setearPuntosDeDanio(int puntosDeDanio) {
-		if (puntosDeDanio < 0){
-			this.setPuntosDeDanio(0);
-		}else{
-			if(puntosDeDanio > 100){
-				this.setPuntosDeDanio(100);
-			}else{
-				this.setPuntosDeDanio(puntosDeDanio);
-			}
+		if (puntosDeDanio < 0 || puntosDeDanio > 100) {
+			throw new UserException("Los puntos deben ser entre 0 y 100");
 		}
+		this.setPuntosDeDanio(puntosDeDanio);
 	}
 
 	public void setearCapacidadDefensiva(int capacidadDefensiva) {
@@ -66,5 +64,12 @@ public class Planta {
 			}
 		}
 		
+	}
+
+	public void teAtaca(Zombie unZombie) {
+		this.recibirDanio(unZombie.getAtaque());
+		if (this.getCapacidadDefensiva() <= 0){
+			this.getTerreno().desplantame(this);
+		}
 	}
 }

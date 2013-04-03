@@ -1,3 +1,4 @@
+package plantaszombies;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -47,13 +48,12 @@ public class Semilla {
 		return this.getTipoTerreno().esTerrestre();
 	}
 	public Planta sembrar(Terreno terreno) {
-		Planta planta = new Planta(this.definirPuntosDeDanio(), this.definirCapacidadDefensiva(),this.nombre, terreno);
-		return planta;
+		return new Planta(this.definirPuntosDeDanio(), this.definirCapacidadDefensiva(),this.nombre, terreno);
 	}
 	
 	public int definirCapacidadDefensiva() {
 		int capacidad = this.capacidadDefensiva;
-		for(Mejora mejora : this.mejorasAplicadas){
+		for (Mejora mejora : this.mejorasAplicadas){
 			if (mejora.getTipo() == Tipo.DEFENSIVA){
 				//capacidad+= mejora.getCosto(); esto lo cambie
 				capacidad = (((capacidad *mejora.getporcDeMejora())/100)+capacidad)  ;//ESTo lo cambie
@@ -79,8 +79,5 @@ public class Semilla {
 	public void aplicarMejora (Mejora mejora) {
 		this.mejorasAplicadas.add(mejora);
 	}
-	
-	
-	
 	
 }
