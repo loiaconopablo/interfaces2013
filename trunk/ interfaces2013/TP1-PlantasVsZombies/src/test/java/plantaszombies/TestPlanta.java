@@ -52,14 +52,14 @@ public class TestPlanta extends TestCase {
 		this.assertEquals(45, this.planta.getPuntosDeDanio());
 	}
 	
-	public void testSetearPuntosDeDanioMenorAlRango(){
-		this.planta.setearPuntosDeDanio(-75);
-		this.assertEquals(0, this.planta.getPuntosDeDanio());
-	}
-	
-	public void testSetearPuntosDeDanioMayorAlRango(){
-		this.planta.setearPuntosDeDanio(142);
-		this.assertEquals(100, this.planta.getPuntosDeDanio());
-	}
+//	public void testSetearPuntosDeDanioMenorAlRango(){
+//		this.planta.setearPuntosDeDanio(-75);
+//		this.assertEquals(0, this.planta.getPuntosDeDanio());
+//	}
+//	
+//	public void testSetearPuntosDeDanioMayorAlRango(){
+//		this.planta.setearPuntosDeDanio(142);
+//		this.assertEquals(100, this.planta.getPuntosDeDanio());
+//	}
 	
 }
