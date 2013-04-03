@@ -4,9 +4,10 @@ import java.util.Random;
 import org.uqbar.commons.model.UserException;
 
 /**
+ * @author Mariano Varela, Pablo Loiacono
  * 
- * @author usuario
  */
+
 public class Zombie {
 	private int resistencia;
 	private int resistenciaInicial;

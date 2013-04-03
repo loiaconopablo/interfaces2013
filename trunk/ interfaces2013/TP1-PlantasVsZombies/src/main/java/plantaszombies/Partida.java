@@ -1,8 +1,8 @@
 package plantaszombies;
 
 /**
+ * @author Mariano Varela, Pablo Loiacono
  * 
- * @author usuario
  */
 public class Partida {
 	private Jardin jardin;

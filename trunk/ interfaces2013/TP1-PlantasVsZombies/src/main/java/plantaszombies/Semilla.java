@@ -2,6 +2,10 @@ package plantaszombies;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * @author Mariano Varela, Pablo Loiacono
+ * 
+ */
 
 public class Semilla {
 	

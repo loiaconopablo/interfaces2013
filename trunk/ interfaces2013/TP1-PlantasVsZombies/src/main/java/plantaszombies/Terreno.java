@@ -4,6 +4,11 @@ import java.util.List;
 
 import org.uqbar.commons.model.UserException;
 
+/**
+ * @author Mariano Varela, Pablo Loiacono
+ * 
+ */
+
 public class Terreno {
 
 	private TipoTerreno tipoTerreno;
