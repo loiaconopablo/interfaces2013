@@ -65,10 +65,10 @@ public class TestTerreno extends TestCase {
 		this.assertFalse(this.terrenoTerrestre.estaLibre(1));
 	}
 	
-	public void testAñadirEn(){
+	public void testAniadirEn(){
 		Semilla semilla = new Semilla(this.tipoTerrenoAcuatico,"Girasol", 25, 24);
 		this.assertNull(this.terrenoAcuatico.getPlantas().get(3));
-		this.terrenoAcuatico.añadirEn(semilla, 3);
+		this.terrenoAcuatico.aniadirEn(semilla, 3);
 		this.assertNotNull(this.terrenoAcuatico.getPlantas().get(3));
 	}
 	

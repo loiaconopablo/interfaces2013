@@ -17,10 +17,10 @@ public class TestAlmanaqueDeZombies extends TestCase {
 	public void testBuscarCasoQueEncuentraAlZombie(){
 		Jardin jardin = new Jardin(2,4);
 		JardinZen jardinZen = new JardinZen(jardin,null);
-		Zombie zombie = new Zombie(jardin, jardinZen,25,45,"Joe");
-		this.almanaque.getZombies().add(new Zombie(jardin, jardinZen,25,45,"Billy"));
+		Zombie zombie = new Zombie(25,45,"Joe");
+		this.almanaque.getZombies().add(new Zombie(25,45,"Billy"));
 		this.almanaque.getZombies().add(zombie);
-		this.almanaque.getZombies().add(new Zombie(jardin, jardinZen,25,45,"Jerry"));
+		this.almanaque.getZombies().add(new Zombie(25,45,"Jerry"));
 		this.assertEquals(zombie, this.almanaque.buscar("Joe"));
 		this.assertEquals(Zombie.class, this.almanaque.buscar("Billy").getClass());
 	}

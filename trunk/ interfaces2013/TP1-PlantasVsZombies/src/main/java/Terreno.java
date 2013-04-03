@@ -71,7 +71,7 @@ public class Terreno {
 		return (this.getPlantas().get(casillero) == null);
 	}
 
-	public void añadirEn(Semilla semilla, int casillero) {
+	public void aniadirEn(Semilla semilla, int casillero) {
 		this.getPlantas().add(casillero, semilla.sembrar(this));
 	}
 	

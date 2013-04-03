@@ -15,7 +15,7 @@ public class TestSemilla extends TestCase{
 		this.assertEquals(this.semilla.getClass(), Semilla.class);
 		this.assertEquals(this.semilla.getTipoTerreno(), this.tipoTerreno);
 		this.assertEquals(this.semilla.getNombre(), "Girasol");
-		this.assertEquals(this.semilla.getPuntosDeDaño(), 10);
+		this.assertEquals(this.semilla.getPuntosDeDanio(), 10);
 		this.assertEquals(this.semilla.getCapacidadDefensiva(),20);
 		this.assertEquals(this.semilla.getMejorasAplicadas().size(),0);
 	}
