@@ -1,4 +1,8 @@
 package plantaszombies;
+/**
+ * @author Mariano Varela, Pablo Loiacono
+ * 
+ */
 
 public class TipoTerrenoAcuatico extends TipoTerreno {
 

@@ -2,6 +2,11 @@ package plantaszombies;
 
 import org.uqbar.commons.model.UserException;
 
+/**
+ * @author Mariano Varela, Pablo Loiacono
+ * 
+ */
+
 public class Planta {
 
 	private int puntosDeDanio;

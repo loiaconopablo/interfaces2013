@@ -3,7 +3,10 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.uqbar.commons.model.UserException;
-
+/**
+ * @author Mariano Varela, Pablo Loiacono
+ * 
+ */
 public class JardinZen {
 
 	private List<Semilla> semillasAcuaticas;

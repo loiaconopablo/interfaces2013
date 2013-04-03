@@ -1,5 +1,10 @@
 package plantaszombies;
 
+/**
+ * @author Mariano Varela, Pablo Loiacono
+ * 
+ */
+
 public class Mejora {
 	
 	private String nombre;
