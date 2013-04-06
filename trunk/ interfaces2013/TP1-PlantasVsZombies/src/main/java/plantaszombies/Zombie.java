@@ -54,32 +54,17 @@ public class Zombie {
 	}
 	
 	private void setearAtaque(int ataque) {
-		if (ataque < 10){
-			this.setAtaque(10);
-		}else{
-			if(ataque > 100){
-				this.setAtaque(100);
-			}else{
-				this.setAtaque(ataque);
-			}
+		if (ataque < 10 || ataque > 100) {
+			throw new UserException("Los puntos deben ser entre 10 y 100");
 		}
-		
+		this.setAtaque(ataque);
 	}
 
 	private void setearResistencia(int resistencia) {
-		if (resistencia < 50){
-			this.setResistencia(50);
-			this.setResistenciaInicial(50);
-		}else{
-			if(resistencia > 100){
-				this.setResistencia(100);
-				this.setResistenciaInicial(100);
-			}else{
-				this.setResistencia(resistencia);
-				this.setResistenciaInicial(resistencia);
-			}
+		if (resistencia < 50 || resistencia > 100) {
+			throw new UserException("Los puntos deben ser entre 50 y 100");
 		}
-		
+		this.setResistencia(resistencia);
 	}
 	
 	public int darPremio() {

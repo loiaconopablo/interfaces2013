@@ -33,4 +33,15 @@ public class Mejora {
 	}
 
 
+	public void aplicarMejora(Planta planta) {
+		if(this.getTipo().equals(Tipo.DEFENSIVA)){
+			planta.setCapacidadDefensiva(this.getporcDeMejora() + planta.getCapacidadDefensiva());
+		}
+		else{
+			planta.setPuntosDeDanio(this.getporcDeMejora() + planta.getPuntosDeDanio());
+		}
+		
+	}
+
+
 }
