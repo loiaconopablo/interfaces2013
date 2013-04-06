@@ -59,18 +59,12 @@ public class Planta {
 	}
 
 	public void setearCapacidadDefensiva(int capacidadDefensiva) {
-		if (capacidadDefensiva <= 0){
-			this.setCapacidadDefensiva(1);
-		}else{
-			if(capacidadDefensiva > 50){
-				this.setCapacidadDefensiva(50);
-			}else{							
-				this.setCapacidadDefensiva(capacidadDefensiva);
-			}
+		if (capacidadDefensiva <= 0 || capacidadDefensiva > 50) {
+			throw new UserException("Los puntos deben ser entre 1 y 50");
 		}
-		
+		this.setCapacidadDefensiva(capacidadDefensiva);
 	}
-
+		
 	public void teAtaca(Zombie unZombie) {
 		this.recibirDanio(unZombie.getAtaque());
 		if (this.getCapacidadDefensiva() <= 0){
