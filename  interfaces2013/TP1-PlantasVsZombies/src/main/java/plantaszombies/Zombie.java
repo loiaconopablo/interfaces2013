@@ -2,12 +2,15 @@ package plantaszombies;
 import java.util.Random;
 
 import org.uqbar.commons.model.UserException;
+import org.uqbar.commons.utils.Observable;
+import org.uqbar.commons.utils.Transactional;
 
 /**
  * @author Mariano Varela, Pablo Loiacono
  * 
  */
-
+@Transactional
+@Observable
 public class Zombie {
 	private int resistencia;
 	private int resistenciaInicial;
@@ -18,6 +21,7 @@ public class Zombie {
 	public Zombie(int resistencia, int ataque, String nombre){
 		this.nombre = nombre;
 		this.setearResistencia(resistencia);
+		this.resistenciaInicial=resistencia;
 		this.setearAtaque(ataque);
 	}
 
