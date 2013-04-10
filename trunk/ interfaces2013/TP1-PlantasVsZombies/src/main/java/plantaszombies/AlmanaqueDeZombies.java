@@ -1,15 +1,21 @@
 package plantaszombies;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.uqbar.commons.model.UserException;
+import org.uqbar.commons.utils.Observable;
+import org.uqbar.commons.utils.Transactional;
 
 /**
  * @author Mariano Varela, Pablo Loiacono
  * 
  */
-public class AlmanaqueDeZombies {
+
+@Transactional
+@Observable
+public class AlmanaqueDeZombies  { 
 
 	private List<Zombie> zombies;
 
