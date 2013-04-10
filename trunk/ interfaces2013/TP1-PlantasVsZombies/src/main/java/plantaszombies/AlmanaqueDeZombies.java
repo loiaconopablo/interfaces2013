@@ -1,8 +1,10 @@
 package plantaszombies;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.uqbar.commons.model.UserException;
+
 /**
  * @author Mariano Varela, Pablo Loiacono
  * 
@@ -13,6 +15,9 @@ public class AlmanaqueDeZombies {
 
 	public AlmanaqueDeZombies(){
 		this.zombies = new LinkedList<Zombie>();
+		this.zombies.add(new Zombie(50,50, "uno"));
+		this.zombies.add(new Zombie(50,100, "unos"));
+		this.zombies.add(new Zombie(50,75, "dos"));
 	}
 	
 	public List<Zombie> getZombies() {
@@ -36,4 +41,22 @@ public class AlmanaqueDeZombies {
 		return encontrado;
 	}
 
+
+	public List<Zombie> search(String nombre) {
+		List<Zombie> resultados = new LinkedList<Zombie>();
+
+		for (Zombie zombie : this.zombies) {
+			if (match(nombre, zombie.getNombre())) {
+				resultados.add(zombie);
+			}
+		}
+
+		return resultados;
+	}
+
+	protected boolean match(Object expectedValue, Object realValue) {
+		return expectedValue == null
+			|| realValue.toString().toLowerCase().contains(expectedValue.toString().toLowerCase());
+	}
+	
 }

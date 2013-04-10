@@ -12,7 +12,7 @@ public class Jardin {
 	private List<Terreno> filas;
 	
 	public Jardin(int filasAcuaticas, int filasTerrestres){
-		this.recursos = 0;
+		this.recursos = 100;
 		this.filas = new LinkedList<Terreno>();
 		for (int i = 0; i < filasAcuaticas; i++) {
 			this.getFilas().add(new Terreno(new TipoTerrenoAcuatico()));
