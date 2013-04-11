@@ -26,5 +26,8 @@ public class TestAlmanaqueDeZombies extends TestCase {
 		this.assertEquals(Zombie.class, this.almanaque.buscar("Billy").getClass());
 	}
 	
+	public void testMatch(){
+		this.assertTrue(this.almanaque.match("o", new Zombie(75,15,"Joe")));
+	}
 	
 }
