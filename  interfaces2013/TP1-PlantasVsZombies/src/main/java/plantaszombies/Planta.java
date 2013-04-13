@@ -1,12 +1,13 @@
 package plantaszombies;
 
 import org.uqbar.commons.model.UserException;
+import org.uqbar.commons.utils.Observable;
 
 /**
  * @author Mariano Varela, Pablo Loiacono
  * 
  */
-
+@Observable
 public class Planta {
 
 	private int puntosDeDanio;
