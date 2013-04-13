@@ -3,12 +3,13 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.uqbar.commons.model.UserException;
+import org.uqbar.commons.utils.Observable;
 
 /**
  * @author Mariano Varela, Pablo Loiacono
  * 
  */
-
+@Observable
 public class Terreno {
 
 	private TipoTerreno tipoTerreno;
