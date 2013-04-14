@@ -42,7 +42,7 @@ public class Planta {
 		this.capacidadDefensiva = capacidadDefensiva;
 	}
 	public String getNombre() {
-		return nombre;
+		return nombre + " (" + this.getPuntosDeDanio() + "/" + this.getCapacidadDefensiva() + ")" ;
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
