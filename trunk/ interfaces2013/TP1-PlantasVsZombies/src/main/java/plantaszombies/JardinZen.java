@@ -3,10 +3,12 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.uqbar.commons.model.UserException;
+import org.uqbar.commons.utils.Observable;
 /**
  * @author Mariano Varela, Pablo Loiacono
  * 
  */
+@Observable
 public class JardinZen {
 
 	private List<Semilla> semillasAcuaticas;
@@ -16,8 +18,14 @@ public class JardinZen {
 	private List<Mejora> mejoras;
 
 	public JardinZen(Jardin jardin, List<Mejora> mejoras) {
-		this.semillasAcuaticas = new LinkedList<Semilla>();
-		this.semillasTerrestres = new LinkedList<Semilla>();
+		List<Semilla> acuaticas = new LinkedList<Semilla>();
+		acuaticas.add(new Semilla(new TipoTerrenoAcuatico(),"Sea shooter",50,50));
+		List<Semilla> terrestres = new LinkedList<Semilla>();
+		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Girasol",50,50));
+		this.semillasAcuaticas = acuaticas;
+		this.semillasTerrestres = terrestres;
+//		this.semillasAcuaticas = new LinkedList<Semilla>();
+//		this.semillasTerrestres = new LinkedList<Semilla>();
 		this.semillasDePremio = new LinkedList<Semilla>();
 		this.setJardin(jardin);
 		this.mejoras = mejoras;
@@ -55,6 +63,12 @@ public class JardinZen {
 		this.semillasDePremio = semillasDePremio;
 	}
 
+	public List<Semilla> getSemillas(){
+		List<Semilla> todasLasSemillas = new LinkedList<Semilla>(); 
+		todasLasSemillas.addAll(this.semillasAcuaticas);
+		todasLasSemillas.addAll(this.semillasTerrestres);
+		return todasLasSemillas;
+	}
 	/*
 	 * Haceme acordar que veamos este a�adirSemilla, as� me lo explicas je se
 	 * que te basaste en el plataPremio= Plantas [ramdom(0,plantas.size-1)] pero
