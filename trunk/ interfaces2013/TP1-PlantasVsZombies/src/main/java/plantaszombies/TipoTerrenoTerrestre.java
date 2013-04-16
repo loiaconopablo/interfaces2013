@@ -1,4 +1,7 @@
 package plantaszombies;
+
+
+
 /**
  * @author Mariano Varela, Pablo Loiacono
  * 
@@ -15,5 +18,4 @@ public class TipoTerrenoTerrestre extends TipoTerreno {
 	public boolean esAcuatica() {
 		return false;
 	}
-
 }

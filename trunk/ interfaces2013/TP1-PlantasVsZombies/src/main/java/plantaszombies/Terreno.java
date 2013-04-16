@@ -30,7 +30,7 @@ public class Terreno {
 	public List<Planta> getPlantas() {
 		return this.plantas;
 	}
-
+	
 
 	/*
 	 * Siempre retorna una planta ya que antes de llamar a este metodo pregunta
@@ -96,6 +96,33 @@ public class Terreno {
 
 	protected boolean puedePlantarseAca(Semilla semilla) {
 		return (semilla.esAcuatica() && this.esAcuatico()) || (semilla.esTerrestre() && this.esTerrestre());
+	}
+	
+	/**
+	 * Accesors
+	 */
+	
+	public String getTipoTerrenoToString(){
+		if(this.esAcuatico()){
+			return "Acuatico";
+		}
+		return "Terrestre";
+	}
+	
+	public String getPrimero(){
+		return this.plantas.get(0).toString();
+	}
+	public String getSegundo(){
+		return this.plantas.get(1).toString();
+	}
+	public String getTercero(){
+		return this.plantas.get(2).toString();
+	}
+	public String getCuarto(){
+		return this.plantas.get(3).toString();
+	}
+	public String getQuinto(){
+		return this.plantas.get(4).toString();
 	}
 	
 }
