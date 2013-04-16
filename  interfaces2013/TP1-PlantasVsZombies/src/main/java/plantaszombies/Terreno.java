@@ -110,19 +110,34 @@ public class Terreno {
 	}
 	
 	public String getPrimero(){
+		if (this.plantas.get(0)!= null){
 		return this.plantas.get(0).toString();
+		}
+		return "";
 	}
 	public String getSegundo(){
-		return this.plantas.get(1).toString();
+		if (this.plantas.get(1)!= null){
+			return this.plantas.get(1).toString();
+			}
+			return "";
 	}
 	public String getTercero(){
-		return this.plantas.get(2).toString();
+		if (this.plantas.get(2)!= null){
+			return this.plantas.get(2).toString();
+			}
+			return "";
 	}
 	public String getCuarto(){
-		return this.plantas.get(3).toString();
+		if (this.plantas.get(3)!= null){
+			return this.plantas.get(3).toString();
+			}
+			return "";
 	}
 	public String getQuinto(){
-		return this.plantas.get(4).toString();
+		if (this.plantas.get(4)!= null){
+			return this.plantas.get(4).toString();
+			}
+			return "";
 	}
 	
 }
