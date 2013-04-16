@@ -21,9 +21,11 @@ public class AlmanaqueDeZombies  {
 
 	public AlmanaqueDeZombies(){
 		this.zombies = new LinkedList<Zombie>();
-		this.zombies.add(new Zombie(50,50, "uno"));
-		this.zombies.add(new Zombie(50,100, "unos"));
-		this.zombies.add(new Zombie(50,75, "dos"));
+		this.zombies.add(new Zombie(50,50, "Willy"));
+		this.zombies.add(new Zombie(50,100, "Juan"));
+		this.zombies.add(new Zombie(50,75, "Jose"));
+		this.zombies.add(new Zombie(50,75, "Laurito"));
+		this.zombies.add(new Zombie(50,75, "Mandanda"));
 	}
 	
 	public List<Zombie> getZombies() {

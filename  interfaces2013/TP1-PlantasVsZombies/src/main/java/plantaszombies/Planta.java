@@ -42,7 +42,7 @@ public class Planta {
 		this.capacidadDefensiva = capacidadDefensiva;
 	}
 	public String getNombre() {
-		return nombre + " (" + this.getPuntosDeDanio() + "/" + this.getCapacidadDefensiva() + ")" ;
+		return nombre; 
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -71,5 +71,9 @@ public class Planta {
 		if (this.getCapacidadDefensiva() <= 0){
 			this.getTerreno().desplantame(this);
 		}
+	}
+	
+	public String toString(){
+		return this.getNombre() + "(" + this.getPuntosDeDanio() + "/" + this.getCapacidadDefensiva() + ")";
 	}
 }
