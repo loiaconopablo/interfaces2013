@@ -1,14 +1,33 @@
 package plantaszombies;
 
+import org.uqbar.commons.utils.Observable;
+import org.uqbar.commons.utils.Transactional;
+
 /**
  * @author Mariano Varela, Pablo Loiacono
  * 
  */
 
+@Observable
 public class Mejora {
 	
 	private String nombre;
 	private int costo;
+	public String getNombre() {
+		return nombre;
+	}
+
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public void setCosto(int costo) {
+		this.costo = costo;
+	}
+
+
 	private Tipo tipo;
 	private int porcDeMejora;
 	
