@@ -1,9 +1,12 @@
 package plantaszombies;
 
+import org.uqbar.commons.utils.Observable;
+
 /**
  * @author Mariano Varela, Pablo Loiacono
  * 
  */
+@Observable
 public class Partida {
 	private Jardin jardin;
 	private JardinZen jardinZen;
@@ -17,9 +20,11 @@ public class Partida {
 	}
 	
 	public void atacar() {
-		while (this.getZombieAtacante().estaVivo()) {
+		boolean ganoElZombie = false;
+		while (this.getZombieAtacante().estaVivo() && (! ganoElZombie)) {
 			if (this.getTerrenoAAtacar().estaVacio()) {
 				//throw new UserException("Perdiste el juego!!!");
+				ganoElZombie = true;
 				System.out.println("El zombie te comio los sesos");
 			} else {
 				this.atacar(this.getZombieAtacante(), this.terrenoAAtacar.siguiente());
