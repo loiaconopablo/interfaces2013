@@ -15,26 +15,55 @@ public class JardinZen {
 	private List<Semilla> semillasTerrestres;
 	private List<Semilla> semillasDePremio;
 	private Jardin jardin;
-	private List<Mejora> mejoras;
+	private List<Mejora> mejorasPredefinidas;
 
-	public JardinZen(Jardin jardin, List<Mejora> mejoras) {
-		List<Semilla> acuaticas = new LinkedList<Semilla>();
-		acuaticas.add(new Semilla(new TipoTerrenoAcuatico(),"Sea shooter",50,50));
-		List<Semilla> terrestres = new LinkedList<Semilla>();
-		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Girasol",50,50));
-		this.semillasAcuaticas = acuaticas;
-		this.semillasTerrestres = terrestres;
-//		this.semillasAcuaticas = new LinkedList<Semilla>();
-//		this.semillasTerrestres = new LinkedList<Semilla>();
+	public JardinZen(Jardin jardin) {
+		
+		this.semillasAcuaticas = new LinkedList<Semilla>(); // no se si es necesaio inicializarla
+		this.semillasTerrestres = new LinkedList<Semilla>();// no se si es necesaio inicializarla
+		this.setMejorasPredefinidas(new LinkedList<Mejora>());// no se si es necesaio inicializarla
 		this.semillasDePremio = new LinkedList<Semilla>();
 		this.setJardin(jardin);
-		this.mejoras = mejoras;
+		this.prepararJardinZen();
+	}
+	
+	/**
+	 * Factory
+	 */
+	public void prepararJardinZen(){
+	
+		List<Semilla> acuaticas = new LinkedList<Semilla>();
+		acuaticas.add(new Semilla(new TipoTerrenoAcuatico(),"Sea shooter",50,50));
+		acuaticas.add(new Semilla(new TipoTerrenoAcuatico(),"Waterprof",40,80));
+		List<Semilla> terrestres = new LinkedList<Semilla>();
+		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Girasol",50,50));
+		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Jazin",40,80));
+	
+				
+		List<Mejora> mejoras = new LinkedList<Mejora>();
+		mejoras.add(new Mejora("Mejora1",20, Tipo.DEFENSIVA, 20));
+		mejoras.add(new Mejora("Mejora2",20, Tipo.OFENSIVA, 20));
+		mejoras.add(new Mejora("Mejora3",30, Tipo.DEFENSIVA, 30));
+		mejoras.add(new Mejora("Mejora4",30, Tipo.OFENSIVA, 30));
+		mejoras.add(new Mejora("Mejora5",50, Tipo.DEFENSIVA, 50));
+		
+		this.semillasAcuaticas = acuaticas;
+		this.semillasTerrestres = terrestres;
+		this.setMejorasPredefinidas(mejoras);
+		
 	}
 
+	
+		
+	
+/**Getters y Setter 
+ * 
+ * @return
+ */
 	public void setJardin(Jardin jardin) {
 		this.jardin = jardin;
-	}
-
+	}	
+	
 	public Jardin getJardin() {
 		return jardin;
 	}
@@ -105,6 +134,14 @@ public class JardinZen {
 	public void mejorarA(Semilla semilla, Mejora mejora){
 		semilla.aplicarMejora(mejora);
 		this.getJardin().descontarRecursos(mejora.getCosto());
+	}
+
+	public List<Mejora> getMejorasPredefinidas() {
+		return mejorasPredefinidas;
+	}
+
+	public void setMejorasPredefinidas(List<Mejora> mejorasPredefinidas) {
+		this.mejorasPredefinidas = mejorasPredefinidas;
 	}
 	
 	

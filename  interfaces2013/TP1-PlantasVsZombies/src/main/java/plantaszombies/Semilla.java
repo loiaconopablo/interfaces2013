@@ -3,11 +3,13 @@ package plantaszombies;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.uqbar.commons.utils.Observable;
+
 /**
  * @author Mariano Varela, Pablo Loiacono
  * 
  */
-
+@Observable
 public class Semilla {
 
 	private TipoTerreno tipoTerreno;
