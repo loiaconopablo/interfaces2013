@@ -1,7 +1,9 @@
 package plantaszombies;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.uqbar.commons.model.ObservableUtils;
 import org.uqbar.commons.utils.Observable;
 /**
  * @author Mariano Varela, Pablo Loiacono
@@ -45,6 +47,13 @@ public class Jardin {
 
 	public void descontarRecursos(int costo) {
 		this.setRecursos(this.getRecursos() - costo);
+	}
+	
+	public void plantar(int fila, int columna, Semilla semilla){
+		List<Terreno> filasTemp = this.filas;
+		filasTemp.get(fila).aniadirEn(semilla, columna);
+		this.filas = null;
+		this.filas = new LinkedList<Terreno>(filasTemp);
 	}
 	
 }
