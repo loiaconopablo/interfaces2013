@@ -10,7 +10,7 @@ public class TestZombie extends TestCase {
 	
 	public void setUp(){
 		this.jardin = new Jardin(2,2);
-		this.jardinZen = new JardinZen(this.jardin,null);
+		this.jardinZen = new JardinZen(this.jardin);
 		this.zombie = new Zombie(50,50, "Jose");
 	}
 	
