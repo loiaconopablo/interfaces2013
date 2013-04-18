@@ -34,10 +34,10 @@ public class JardinZen {
 	
 		List<Semilla> acuaticas = new LinkedList<Semilla>();
 		acuaticas.add(new Semilla(new TipoTerrenoAcuatico(),"Sea shooter",50,50));
-		acuaticas.add(new Semilla(new TipoTerrenoAcuatico(),"Waterprof",40,80));
+		acuaticas.add(new Semilla(new TipoTerrenoAcuatico(),"Waterprof",80,40));
 		List<Semilla> terrestres = new LinkedList<Semilla>();
 		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Girasol",50,50));
-		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Jazin",40,80));
+		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Jazin",80,40));
 	
 				
 		List<Mejora> mejoras = new LinkedList<Mejora>();

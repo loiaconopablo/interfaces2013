@@ -1,4 +1,5 @@
 package plantaszombies;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -16,7 +17,7 @@ public class Terreno {
 	private List<Planta> plantas;
 
 	public Terreno(TipoTerreno terreno) {// Agregue que se le pase el tipo de
-		this.plantas = new LinkedList<Planta>();									// Terreno
+		this.plantas = new LinkedList<Planta>(); // Terreno
 		this.tipoTerreno = terreno;
 		for (int i = 0; i < 5; i++) {
 			this.getPlantas().add(null);
@@ -26,11 +27,10 @@ public class Terreno {
 	public TipoTerreno getTipoTerreno() {
 		return tipoTerreno;
 	}
-	
+
 	public List<Planta> getPlantas() {
 		return this.plantas;
 	}
-	
 
 	/*
 	 * Siempre retorna una planta ya que antes de llamar a este metodo pregunta
@@ -53,11 +53,10 @@ public class Terreno {
 
 	public boolean estaVacio() {
 		boolean estaVacio = true;
-		for(Planta planta: this.getPlantas()){
-			if (planta == null){
+		for (Planta planta : this.getPlantas()) {
+			if (planta == null) {
 				estaVacio = estaVacio && true;
-			}
-			else{
+			} else {
 				estaVacio = estaVacio && false;
 			}
 		}
@@ -89,55 +88,58 @@ public class Terreno {
 			throw new UserException("Esta ocupado el casillero");
 		}
 		if (!this.puedePlantarseAca(semilla)) {
-			throw new UserException("No se puede plantar esta planta ese terreno");
+			throw new UserException(
+					"No se puede plantar esta planta ese terreno");
 		}
 		this.aniadirEn(semilla, casillero);
 	}
 
 	protected boolean puedePlantarseAca(Semilla semilla) {
-		return (semilla.esAcuatica() && this.esAcuatico()) || (semilla.esTerrestre() && this.esTerrestre());
+		return (semilla.esAcuatica() && this.esAcuatico())
+				|| (semilla.esTerrestre() && this.esTerrestre());
 	}
-	
+
 	/**
 	 * Accesors
 	 */
-	
-	public String getTipoTerrenoToString(){
-		if(this.esAcuatico()){
+
+	public String getTipoTerrenoToString() {
+		if (this.esAcuatico()) {
 			return "Acuatico";
 		}
 		return "Terrestre";
 	}
-	
-	public String getPrimero(){
-		if (this.plantas.get(0)!= null){
-		return this.plantas.get(0).toString();
+
+	public Planta getPrimero() {
+		return this.plantas.get(0);
+	}
+
+	public String getSegundo() {
+		if (this.plantas.get(1) != null) {
+			return this.plantas.get(1).toString();
 		}
 		return "";
 	}
-	public String getSegundo(){
-		if (this.plantas.get(1)!= null){
-			return this.plantas.get(1).toString();
-			}
-			return "";
-	}
-	public String getTercero(){
-		if (this.plantas.get(2)!= null){
+
+	public String getTercero() {
+		if (this.plantas.get(2) != null) {
 			return this.plantas.get(2).toString();
-			}
-			return "";
+		}
+		return "";
 	}
-	public String getCuarto(){
-		if (this.plantas.get(3)!= null){
+
+	public String getCuarto() {
+		if (this.plantas.get(3) != null) {
 			return this.plantas.get(3).toString();
-			}
-			return "";
+		}
+		return "";
 	}
-	public String getQuinto(){
-		if (this.plantas.get(4)!= null){
+
+	public String getQuinto() {
+		if (this.plantas.get(4) != null) {
 			return this.plantas.get(4).toString();
-			}
-			return "";
+		}
+		return "";
 	}
-	
+
 }
