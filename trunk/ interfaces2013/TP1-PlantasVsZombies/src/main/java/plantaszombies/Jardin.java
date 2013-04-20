@@ -51,7 +51,7 @@ public class Jardin {
 	
 	public void plantar(int fila, int columna, Semilla semilla){
 		List<Terreno> filasTemp = this.filas;
-		filasTemp.get(fila).aniadirEn(semilla, columna);
+		filasTemp.get(fila).sembrar(semilla, columna);
 		this.filas = null;
 		this.filas = new LinkedList<Terreno>(filasTemp);
 	}
