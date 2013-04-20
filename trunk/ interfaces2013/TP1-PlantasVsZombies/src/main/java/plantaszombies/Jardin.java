@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.uqbar.commons.model.ObservableUtils;
 import org.uqbar.commons.utils.Observable;
+
 /**
  * @author Mariano Varela, Pablo Loiacono
  * 
@@ -14,6 +15,7 @@ public class Jardin {
 
 	private int recursos;
 	private List<Terreno> filas;
+	private List<String> logs = new ArrayList<String>();
 	
 	public Jardin(int filasAcuaticas, int filasTerrestres){
 		this.recursos = 100;
@@ -24,6 +26,18 @@ public class Jardin {
 		for (int i = 0; i < filasTerrestres; i++) {
 			this.getFilas().add(new Terreno(new TipoTerrenoTerrestre()));
 		}
+	}
+	
+	
+	/**
+	 * Accesors
+	 */
+	public List<String> getLogs() {
+		return logs;
+	}
+
+	public void setLogs(List<String> logs) {
+		this.logs = logs;
 	}
 	
 	public int getRecursos() {
@@ -51,9 +65,19 @@ public class Jardin {
 	
 	public void plantar(int fila, int columna, Semilla semilla){
 		List<Terreno> filasTemp = this.filas;
-		filasTemp.get(fila).sembrar(semilla, columna);
+		filasTemp.get(fila).sembrar(semilla, columna,this);
 		this.filas = null;
 		this.filas = new LinkedList<Terreno>(filasTemp);
 	}
+
+
+	public void actualizarLog(String string) {
+		List<String> logsTemp = this.getLogs();
+ 		logsTemp.add(string);
+ 		this.logs = null;
+ 		this.logs = new ArrayList<String>(logsTemp);
+		
+	}
 	
+
 }

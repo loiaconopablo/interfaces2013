@@ -79,11 +79,12 @@ public class Terreno {
 		return (this.getPlantas().get(casillero) == null);
 	}
 
-	public void aniadirEn(Semilla semilla, int casillero) {
+	public void aniadirEn(Semilla semilla, int casillero, Jardin jardin) {
 		this.getPlantas().add(casillero, semilla.sembrar(this));
+		jardin.actualizarLog("Sembraste "+ semilla.getNombre()+ " en casillero " + casillero);
 	}
 
-	public void sembrar(Semilla semilla, int casillero) {
+	public void sembrar(Semilla semilla, int casillero, Jardin jardin) {
 		if (!this.estaLibre(casillero)) {
 			throw new UserException("Esta ocupado el casillero");
 		}
@@ -91,7 +92,7 @@ public class Terreno {
 			throw new UserException(
 					"No se puede plantar esta planta ese terreno");
 		}
-		this.aniadirEn(semilla, casillero);
+		this.aniadirEn(semilla, casillero,jardin);
 	}
 
 	protected boolean puedePlantarseAca(Semilla semilla) {
