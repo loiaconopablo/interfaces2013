@@ -114,32 +114,26 @@ public class Terreno {
 		return this.plantas.get(0);
 	}
 
-	public String getSegundo() {
-		if (this.plantas.get(1) != null) {
-			return this.plantas.get(1).toString();
+	public Planta getSegundo() {
+		return this.plantas.get(1);
+	}
+
+	public Planta getTercero() {
+		return this.plantas.get(2);
+	}
+
+	public Planta getCuarto() {
+		return this.plantas.get(3);
+	}
+
+	public Planta getQuinto() {
+		return this.plantas.get(4);
+	}
+
+	public String getPlanta(int casillero){
+		if (this.plantas.get(casillero) != null) {
+			return this.plantas.get(casillero).toString();
 		}
 		return "";
 	}
-
-	public String getTercero() {
-		if (this.plantas.get(2) != null) {
-			return this.plantas.get(2).toString();
-		}
-		return "";
-	}
-
-	public String getCuarto() {
-		if (this.plantas.get(3) != null) {
-			return this.plantas.get(3).toString();
-		}
-		return "";
-	}
-
-	public String getQuinto() {
-		if (this.plantas.get(4) != null) {
-			return this.plantas.get(4).toString();
-		}
-		return "";
-	}
-
 }
