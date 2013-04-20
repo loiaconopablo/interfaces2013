@@ -69,7 +69,7 @@ public class TestTerreno extends TestCase {
 	public void testAniadirEn(){
 		Semilla semilla = new Semilla(this.tipoTerrenoAcuatico,"Girasol", 25, 24);
 		this.assertNull(this.terrenoAcuatico.getPlantas().get(3));
-		this.terrenoAcuatico.aniadirEn(semilla, 3);
+		this.terrenoAcuatico.aniadirEn(semilla, 3,null);
 		this.assertNotNull(this.terrenoAcuatico.getPlantas().get(3));
 	}
 	

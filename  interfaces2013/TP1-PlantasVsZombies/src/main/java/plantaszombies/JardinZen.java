@@ -128,7 +128,7 @@ public class JardinZen {
 
 	
 	public void sembrarEn(Semilla semilla, Terreno terreno, int casillero) {
-		terreno.sembrar(semilla, casillero);
+		terreno.sembrar(semilla, casillero,jardin);
 	}
 
 	public void mejorarA(Semilla semilla, Mejora mejora){
