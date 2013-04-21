@@ -68,12 +68,16 @@ public class Planta {
 		
 	public void teAtaca(Zombie unZombie) {
 		this.recibirDanio(unZombie.getAtaque());
-		if (this.getCapacidadDefensiva() <= 0){
+		if (!this.estaViva()){
 			this.getTerreno().desplantame(this);
 		}
 	}
 	
 	public String toString(){
 		return this.getNombre() + "(" + this.getPuntosDeDanio() + "/" + this.getCapacidadDefensiva() + ")";
+	}
+	
+	public boolean estaViva(){
+		return this.getCapacidadDefensiva() > 0;
 	}
 }
