@@ -17,15 +17,20 @@ import org.uqbar.commons.utils.Transactional;
 @Observable
 public class AlmanaqueDeZombies  { 
 
-	private List<Zombie> zombies;
+	public List<Zombie> zombies;
 
 	public AlmanaqueDeZombies(){
 		this.zombies = new LinkedList<Zombie>();
-		this.zombies.add(new Zombie(50,50, "Willy"));
-		this.zombies.add(new Zombie(50,100, "Juan"));
-		this.zombies.add(new Zombie(50,75, "Jose"));
-		this.zombies.add(new Zombie(50,75, "Laurito"));
-		this.zombies.add(new Zombie(50,75, "Mandanda"));
+		this.zombies.add(new Zombie(50,50,"Willy"));
+		this.zombies.add(new Zombie(50,100,"Juan"));
+		this.zombies.add(new Zombie(80,75, "Jose"));
+		this.zombies.add(new Zombie(60,70, "Laurito"));
+		this.zombies.add(new Zombie(50,65, "Mandanda"));
+		this.zombies.add(new Zombie(50,80, "Hugo"));
+		this.zombies.add(new Zombie(100,80, "Hugito"));
+		this.zombies.add(new Zombie(90,40, "Hugiño"));
+		this.zombies.add(new Zombie(70,90, "Tomsom"));
+		this.zombies.add(new Zombie(65,100, "Henry"));
 	}
 	
 	public List<Zombie> getZombies() {
@@ -36,6 +41,11 @@ public class AlmanaqueDeZombies  {
 		this.zombies = zombies;
 	}
 
+	public boolean murieronZombies() {
+		return (this.zombies.size()) == 0;
+		
+	}
+	
 	public Zombie buscar(String nombre) {
 		Zombie encontrado = null;
 		for (Zombie zombie : this.getZombies()) {
