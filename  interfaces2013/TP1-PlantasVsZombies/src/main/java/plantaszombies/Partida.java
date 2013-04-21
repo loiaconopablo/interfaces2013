@@ -26,6 +26,7 @@ public class Partida {
 				//throw new UserException("Perdiste el juego!!!");
 				ganoElZombie = true;
 				System.out.println("El zombie te comio los sesos");
+				this.jardin.actualizarLog("El zombie te comio los sesos");
 			} else {
 				this.atacar(this.getZombieAtacante(), this.terrenoAAtacar.siguiente());
 			}
@@ -34,7 +35,13 @@ public class Partida {
 
 	private void atacar(Zombie unZombie, Planta planta) {
 		planta.teAtaca(unZombie);
+		if (!planta.estaViva()){
+			this.jardin.actualizarLog(unZombie.getNombre() + " se comio tu " + planta.toString());
+		}
 		unZombie.teAtaca(planta, this);
+		if(!unZombie.estaVivo()){
+			this.jardin.actualizarLog("Tus plantas mataron a " + unZombie.getNombre());
+		}
 	}
 	
 	public void aniadirSemilla() {
