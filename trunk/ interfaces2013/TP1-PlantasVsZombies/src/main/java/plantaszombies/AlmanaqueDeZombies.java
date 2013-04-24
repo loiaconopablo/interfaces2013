@@ -13,7 +13,6 @@ import org.uqbar.commons.utils.Transactional;
  * 
  */
 
-@Transactional
 @Observable
 public class AlmanaqueDeZombies  { 
 

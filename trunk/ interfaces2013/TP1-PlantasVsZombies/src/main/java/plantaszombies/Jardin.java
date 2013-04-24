@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.uqbar.commons.model.ObservableUtils;
+import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 
 /**
@@ -60,8 +61,15 @@ public class Jardin {
 	}
 
 	public void descontarRecursos(int costo) {
-		this.setRecursos(this.getRecursos() - costo);
-	}
+		if (this.getRecursos()==0){throw new UserException("No tienes más recusos disponibles");}
+	
+		if ((this.getRecursos() - costo)<0) {
+			throw new UserException("No tienes suficientes recursos para comprar la mejora");
+				}
+			else {
+				this.setRecursos(this.getRecursos() - costo);
+			}
+		}
 	
 	public void plantar(int fila, int columna, Semilla semilla){
 		List<Terreno> filasTemp = this.filas;

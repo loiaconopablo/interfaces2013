@@ -35,27 +35,34 @@ public class JardinZen {
 		List<Semilla> acuaticas = new LinkedList<Semilla>();
 		acuaticas.add(new Semilla(new TipoTerrenoAcuatico(),"Sea shooter",50,50));
 		acuaticas.add(new Semilla(new TipoTerrenoAcuatico(),"Waterprof",80,40));
+		acuaticas.add(new Semilla(new TipoTerrenoAcuatico(),"Cachalote",70,30));
+		acuaticas.add(new Semilla(new TipoTerrenoAcuatico(),"Lily Pad",100,50));
+		acuaticas.add(new Semilla(new TipoTerrenoAcuatico(),"Umbrella Leaf",40,20));
 		List<Semilla> terrestres = new LinkedList<Semilla>();
 		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Girasol",50,50));
-		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Jazin",80,40));
+		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Jazin",80,25));
+		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Lanzaguisantes",100,50));
+		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Petacereza",75,20));
+		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Patapum",90,50));
+		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Carnívora",100,30));
 	
-				
+	
 		List<Mejora> mejoras = new LinkedList<Mejora>();
-		mejoras.add(new Mejora("Mejora1",20, Tipo.DEFENSIVA, 20));
-		mejoras.add(new Mejora("Mejora2",20, Tipo.OFENSIVA, 20));
-		mejoras.add(new Mejora("Mejora3",30, Tipo.DEFENSIVA, 30));
-		mejoras.add(new Mejora("Mejora4",30, Tipo.OFENSIVA, 30));
-		mejoras.add(new Mejora("Mejora5",50, Tipo.DEFENSIVA, 50));
+		mejoras.add(new Mejora("Aumenta en 20 su poder Defensivo",30, Tipo.DEFENSIVA, 20));
+		mejoras.add(new Mejora("Aumenta en 20 su poder Ofensivo",10, Tipo.OFENSIVA, 20));
+		mejoras.add(new Mejora("Aumenta en 40 su poder Defensivo",30, Tipo.DEFENSIVA, 40));
+		mejoras.add(new Mejora("Aumenta en 30 su poder Ofensivo",30, Tipo.OFENSIVA, 30));
+		mejoras.add(new Mejora("Aumenta en 70 su poder Defensivo",50, Tipo.DEFENSIVA, 70));
+		mejoras.add(new Mejora("Aumenta en 25 su poder Ofensivo",25, Tipo.OFENSIVA, 25));
+		mejoras.add(new Mejora("Aumenta en 10 su poder Defensivo",5, Tipo.DEFENSIVA, 10));
 		
 		this.semillasAcuaticas = acuaticas;
 		this.semillasTerrestres = terrestres;
 		this.setMejorasPredefinidas(mejoras);
 		
 	}
-
 	
-		
-	
+			
 /**Getters y Setter 
  * 
  * @return
