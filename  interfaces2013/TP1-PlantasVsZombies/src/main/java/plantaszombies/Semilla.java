@@ -62,11 +62,11 @@ public class Semilla {
 	public Planta sembrar(Terreno terreno) {
 		Planta nueva = new Planta(this.getPuntosDeDanio(),
 				this.getCapacidadDefensiva(), this.nombre, terreno);
-		this.agregarMejora(nueva);
+		this.agregarMejoras(nueva);
 		return nueva;
 	}
 
-	private void agregarMejora(Planta planta) {
+	private void agregarMejoras(Planta planta) {
 		for (Mejora mejora : this.mejorasAplicadas) {
 			mejora.aplicarMejora(planta);
 		}

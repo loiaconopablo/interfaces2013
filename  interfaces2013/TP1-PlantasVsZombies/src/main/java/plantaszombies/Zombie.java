@@ -9,7 +9,6 @@ import org.uqbar.commons.utils.Transactional;
  * @author Mariano Varela, Pablo Loiacono
  * 
  */
-@Transactional
 @Observable
 public class Zombie {
 	private int resistencia;

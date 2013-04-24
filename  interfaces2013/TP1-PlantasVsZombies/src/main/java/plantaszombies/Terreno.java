@@ -1,6 +1,6 @@
 package plantaszombies;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.uqbar.commons.model.UserException;
@@ -17,7 +17,7 @@ public class Terreno {
 	private List<Planta> plantas;
 
 	public Terreno(TipoTerreno terreno) {// Agregue que se le pase el tipo de
-		this.plantas = new LinkedList<Planta>(); // Terreno
+		this.plantas = new ArrayList<Planta>(5); // Terreno
 		this.tipoTerreno = terreno;
 		for (int i = 0; i < 5; i++) {
 			this.getPlantas().add(null);
@@ -79,12 +79,11 @@ public class Terreno {
 		return (this.getPlantas().get(casillero) == null);
 	}
 
-	public void aniadirEn(Semilla semilla, int casillero, Jardin jardin) {
-		this.getPlantas().add(casillero, semilla.sembrar(this));
-		jardin.actualizarLog("Sembraste "+ semilla.getNombre()+ " en casillero " + casillero);
-	}
-
+	
 	public void sembrar(Semilla semilla, int casillero, Jardin jardin) {
+		if (casillero > 4){
+			throw new UserException("El terreno no es tan grande");
+		}
 		if (!this.estaLibre(casillero)) {
 			throw new UserException("Esta ocupado el casillero");
 		}
@@ -92,9 +91,14 @@ public class Terreno {
 			throw new UserException(
 					"No se puede plantar esta planta ese terreno");
 		}
-		this.aniadirEn(semilla, casillero,jardin);
+		this.aniadirEn(semilla, casillero, jardin);
 	}
 
+	public void aniadirEn(Semilla semilla, int casillero, Jardin jardin) {
+		this.getPlantas().add(casillero, semilla.sembrar(this));
+	}
+	
+	
 	protected boolean puedePlantarseAca(Semilla semilla) {
 		return (semilla.esAcuatica() && this.esAcuatico())
 				|| (semilla.esTerrestre() && this.esTerrestre());
