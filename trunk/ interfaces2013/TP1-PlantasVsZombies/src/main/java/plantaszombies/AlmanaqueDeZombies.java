@@ -1,12 +1,10 @@
 package plantaszombies;
 
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
-import org.uqbar.commons.utils.Transactional;
 
 /**
  * @author Mariano Varela, Pablo Loiacono
@@ -27,7 +25,7 @@ public class AlmanaqueDeZombies  {
 		this.zombies.add(new Zombie(50,65, "Mandanda"));
 		this.zombies.add(new Zombie(50,80, "Hugo"));
 		this.zombies.add(new Zombie(100,80, "Hugito"));
-		this.zombies.add(new Zombie(90,40, "Hugiño"));
+		this.zombies.add(new Zombie(90,40, "HugiÃ±o"));
 		this.zombies.add(new Zombie(70,90, "Tomsom"));
 		this.zombies.add(new Zombie(65,100, "Henry"));
 	}
@@ -74,6 +72,10 @@ public class AlmanaqueDeZombies  {
 	protected boolean match(Object expectedValue, Object realValue) {
 		return expectedValue == null
 			|| realValue.toString().toLowerCase().contains(expectedValue.toString().toLowerCase());
+	}
+
+	public void borrarZombie(Zombie zombie) {
+		this.zombies.remove(zombie);		
 	}
 	
 }

@@ -19,14 +19,9 @@ public class JardinZen {
 
 	public JardinZen(Jardin jardin) {
 		
-		this.semillasAcuaticas = new LinkedList<Semilla>(); // no se si es necesaio inicializarla
-		this.semillasTerrestres = new LinkedList<Semilla>();// no se si es necesaio inicializarla
-		this.setMejorasPredefinidas(new LinkedList<Mejora>());// no se si es necesaio inicializarla
-		this.semillasDePremio = new LinkedList<Semilla>();
 		this.setJardin(jardin);
 		this.prepararJardinZen();
 	}
-	
 	/**
 	 * Factory
 	 */
@@ -44,7 +39,7 @@ public class JardinZen {
 		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Lanzaguisantes",100,50));
 		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Petacereza",75,20));
 		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Patapum",90,50));
-		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Carnívora",100,30));
+		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"CarnÃ­vora",100,30));
 	
 	
 		List<Mejora> mejoras = new LinkedList<Mejora>();
@@ -56,10 +51,17 @@ public class JardinZen {
 		mejoras.add(new Mejora("Aumenta en 25 su poder Ofensivo",25, Tipo.OFENSIVA, 25));
 		mejoras.add(new Mejora("Aumenta en 10 su poder Defensivo",5, Tipo.DEFENSIVA, 10));
 		
+		
+		List <Semilla> semillasDePremio = new LinkedList <Semilla>();
+		semillasDePremio.add(new Semilla(new TipoTerrenoTerrestre(),"Premio1",75,20));
+		semillasDePremio.add(new Semilla(new TipoTerrenoTerrestre(),"Premio2",90,50));
+		semillasDePremio.add(new Semilla(new TipoTerrenoTerrestre(),"Premio3",100,30));
+		
+		
 		this.semillasAcuaticas = acuaticas;
 		this.semillasTerrestres = terrestres;
 		this.setMejorasPredefinidas(mejoras);
-		
+		this.setSemillasDePremio(semillasDePremio);
 	}
 	
 			
@@ -130,7 +132,7 @@ public class JardinZen {
 	protected Semilla getSemillaRandom() {
 //		return CollectionUtils.randomElement(this.getSemillasDePremio());
 		return this.getSemillasDePremio()
-				.get((int) (Math.random() * (((this.getSemillasDePremio().size()-1)) - 0)) + 0);
+				.get((int) (Math.random() * (this.getSemillasDePremio().size()-1)) + 1);
 	}
 
 	

@@ -19,29 +19,28 @@ public class Partida {
 		this.jardinZen = jardinZen;
 	}
 	
-	public void atacar() {
+	public void atacar(Loggeable log) {
 		boolean ganoElZombie = false;
 		while (this.getZombieAtacante().estaVivo() && (! ganoElZombie)) {
 			if (this.getTerrenoAAtacar().estaVacio()) {
 				//throw new UserException("Perdiste el juego!!!");
 				ganoElZombie = true;
-				System.out.println("El zombie te comio los sesos");
-				this.jardin.actualizarLog("El zombie te comio los sesos");
+				log.actualizarLog("El zombie te comio los sesos");
 			} else {
-				this.atacar(this.getZombieAtacante(), this.terrenoAAtacar.siguiente());
+				this.atacar(this.getZombieAtacante(), this.terrenoAAtacar.siguiente(), log);
 			}
 		}
 	}
 
-	private void atacar(Zombie unZombie, Planta planta) {
+	private void atacar(Zombie unZombie, Planta planta, Loggeable log) {
 		planta.teAtaca(unZombie);
 		if (!planta.estaViva()){
-			this.jardin.actualizarLog(unZombie.getNombre() + " se comio tu " + planta.toString());
+			log.actualizarLog(unZombie.getNombre() + " se comio tu " + planta.toString());
+		}
+		if(!unZombie.estaVivo()){
+			log.actualizarLog("Tus plantas mataron a " + unZombie.getNombre());
 		}
 		unZombie.teAtaca(planta, this);
-		if(!unZombie.estaVivo()){
-			this.jardin.actualizarLog("Tus plantas mataron a " + unZombie.getNombre());
-		}
 	}
 	
 	public void aniadirSemilla() {

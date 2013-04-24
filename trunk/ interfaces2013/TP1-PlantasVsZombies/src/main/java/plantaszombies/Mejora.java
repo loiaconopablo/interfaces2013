@@ -1,7 +1,6 @@
 package plantaszombies;
 
 import org.uqbar.commons.utils.Observable;
-import org.uqbar.commons.utils.Transactional;
 
 /**
  * @author Mariano Varela, Pablo Loiacono
@@ -13,21 +12,6 @@ public class Mejora {
 	
 	private String nombre;
 	private int costo;
-	public String getNombre() {
-		return nombre;
-	}
-
-
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
-	}
-
-
-	public void setCosto(int costo) {
-		this.costo = costo;
-	}
-
-
 	private Tipo tipo;
 	private int porcDeMejora;
 	
@@ -51,15 +35,21 @@ public class Mejora {
 		return porcDeMejora;
 	}
 
+	public String getNombre() {
+		return nombre;
+	}
 
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+
+	public void setCosto(int costo) {
+		this.costo = costo;
+	}
+	
 	public void aplicarMejora(Planta planta) {
-		if(this.getTipo().equals(Tipo.DEFENSIVA)){
-			planta.setCapacidadDefensiva(this.getporcDeMejora() + planta.getCapacidadDefensiva());
-		}
-		else{
-			planta.setPuntosDeDanio(this.getporcDeMejora() + planta.getPuntosDeDanio());
-		}
-		
+		this.getTipo().aplicarMejora(planta, this.getporcDeMejora());
 	}
 
 

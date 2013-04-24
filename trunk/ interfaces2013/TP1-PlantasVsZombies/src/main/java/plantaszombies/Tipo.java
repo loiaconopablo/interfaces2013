@@ -7,6 +7,20 @@ package plantaszombies;
 
 public enum Tipo {
 
-	DEFENSIVA, OFENSIVA;
-	
+	DEFENSIVA {
+		@Override
+		public void aplicarMejora(Planta planta, int porcDeMejora) {
+			planta.setCapacidadDefensiva(porcDeMejora + planta.getCapacidadDefensiva());
+		}
+	},
+
+	OFENSIVA {
+		@Override
+		public void aplicarMejora(Planta planta, int porcDeMejora) {
+			planta.setPuntosDeDanio(porcDeMejora + planta.getPuntosDeDanio());
+		}
+	};
+
+	abstract public void aplicarMejora(Planta planta, int porcDeMejora);
+
 }

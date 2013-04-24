@@ -16,7 +16,7 @@ public class Jardin {
 
 	private int recursos;
 	private List<Terreno> filas;
-	private List<String> logs = new ArrayList<String>();
+	
 	
 	public Jardin(int filasAcuaticas, int filasTerrestres){
 		this.recursos = 100;
@@ -33,13 +33,6 @@ public class Jardin {
 	/**
 	 * Accesors
 	 */
-	public List<String> getLogs() {
-		return logs;
-	}
-
-	public void setLogs(List<String> logs) {
-		this.logs = logs;
-	}
 	
 	public int getRecursos() {
 		return recursos;
@@ -61,7 +54,7 @@ public class Jardin {
 	}
 
 	public void descontarRecursos(int costo) {
-		if (this.getRecursos()==0){throw new UserException("No tienes más recusos disponibles");}
+		if (this.getRecursos()==0){throw new UserException("No tienes mas recusos disponibles");}
 	
 		if ((this.getRecursos() - costo)<0) {
 			throw new UserException("No tienes suficientes recursos para comprar la mejora");
@@ -72,20 +65,12 @@ public class Jardin {
 		}
 	
 	public void plantar(int fila, int columna, Semilla semilla){
+		if(fila > this.filas.size() - 1){
+			throw new UserException("No hay tantas filas en el tablero");
+		}
 		List<Terreno> filasTemp = this.filas;
 		filasTemp.get(fila).sembrar(semilla, columna,this);
 		this.filas = null;
 		this.filas = new LinkedList<Terreno>(filasTemp);
 	}
-
-
-	public void actualizarLog(String string) {
-		List<String> logsTemp = this.getLogs();
- 		logsTemp.add(string);
- 		this.logs = null;
- 		this.logs = new ArrayList<String>(logsTemp);
-		
-	}
-	
-
 }
