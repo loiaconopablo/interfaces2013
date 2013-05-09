@@ -112,6 +112,11 @@ public class JardinZen {
 	 * que te basaste en el plataPremio= Plantas [ramdom(0,plantas.size-1)] pero
 	 * mucho no lo entiendo xq pusiste -0 y despues +0
 	 */
+	/**
+	 * Metodos
+	 */
+	
+	
 	public void aniadirSemilla() {
 		Semilla premio = this.getSemillaRandom();
 		if (premio.esAcuatica()) {
@@ -152,7 +157,32 @@ public class JardinZen {
 	public void setMejorasPredefinidas(List<Mejora> mejorasPredefinidas) {
 		this.mejorasPredefinidas = mejorasPredefinidas;
 	}
+
+public List <Semilla> buscarEnAcuatica(String nombre){
+	return this.search(nombre,this.semillasAcuaticas);
+	}
+
+public List <Semilla> buscarEnTerrestre(String nombre){
+	return this.search(nombre,this.semillasTerrestres);
+	}
 	
+	
+	public List<Semilla> search(String nombre, List<Semilla> semillas) {
+		List<Semilla> resultados = new LinkedList<Semilla>();
+
+		for (Semilla semilla : semillas) {
+			if (match(nombre, semilla.getNombre())) {
+				resultados.add(semilla);
+			}
+		}
+
+		return resultados;
+	}
+
+	protected boolean match(Object expectedValue, Object realValue) {
+		return expectedValue == null
+			|| realValue.toString().toLowerCase().contains(expectedValue.toString().toLowerCase());
+	}
 	
 	
 }
