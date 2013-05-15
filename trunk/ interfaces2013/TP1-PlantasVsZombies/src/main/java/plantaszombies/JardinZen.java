@@ -1,7 +1,12 @@
 package plantaszombies;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.commons.collections15.ComparatorUtils;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.builder.CompareToBuilder;
 import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 /**
@@ -182,6 +187,24 @@ public List <Semilla> buscarEnTerrestre(String nombre){
 	protected boolean match(Object expectedValue, Object realValue) {
 		return expectedValue == null
 			|| realValue.toString().toLowerCase().contains(expectedValue.toString().toLowerCase());
+	}
+	public List<Semilla> buscarEnTerrestre(String nombre, String ordenadoPor) {
+		List<Semilla> semillas = this.buscarEnTerrestre(nombre);
+		if (!StringUtils.isBlank(ordenadoPor)) {
+			Collections.sort(semillas, crearComparator(ordenadoPor));
+		}
+		return semillas;
+	}
+	
+	private Comparator<? super Semilla> crearComparator(String ordenadoPor) {
+		if (ordenadoPor.equals("danio")) {
+			return new Comparator<Semilla>() {
+				public int compare(Semilla semilla1, Semilla semilla2) {
+					return semilla1.getPuntosDeDanio() - semilla2.getPuntosDeDanio();
+				}
+			};
+		}
+		throw new UnsupportedOperationException("No implementado");
 	}
 	
 	
