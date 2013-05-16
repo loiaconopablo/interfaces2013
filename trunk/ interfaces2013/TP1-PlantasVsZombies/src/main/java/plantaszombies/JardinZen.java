@@ -180,7 +180,6 @@ public List <Semilla> buscarEnTerrestre(String nombre){
 				resultados.add(semilla);
 			}
 		}
-
 		return resultados;
 	}
 
@@ -196,11 +195,33 @@ public List <Semilla> buscarEnTerrestre(String nombre){
 		return semillas;
 	}
 	
+	public List<Semilla> ordenarSemillasSelectPor(List <Semilla> semillasSelect, String ordenadoPor) {
+		List<Semilla> semillas = semillasSelect;
+		if (!StringUtils.isBlank(ordenadoPor)) {
+			Collections.sort(semillas, crearComparator(ordenadoPor));
+		}
+		return semillas;
+	}
+	
 	private Comparator<? super Semilla> crearComparator(String ordenadoPor) {
 		if (ordenadoPor.equals("danio")) {
 			return new Comparator<Semilla>() {
 				public int compare(Semilla semilla1, Semilla semilla2) {
 					return semilla1.getPuntosDeDanio() - semilla2.getPuntosDeDanio();
+				}
+			};
+		}
+		if (ordenadoPor.equals("nombre")) {
+			return new Comparator<Semilla>() {
+				public int compare(Semilla semilla1, Semilla semilla2) {
+					return 	semilla1.getNombre().compareTo(semilla2.getNombre());
+				}
+			};
+		}
+		if (ordenadoPor.equals("capacidadDefensiva")) {
+			return new Comparator<Semilla>() {
+				public int compare(Semilla semilla1, Semilla semilla2) {
+					return semilla1.getCapacidadDefensiva() - semilla2.getCapacidadDefensiva();
 				}
 			};
 		}
