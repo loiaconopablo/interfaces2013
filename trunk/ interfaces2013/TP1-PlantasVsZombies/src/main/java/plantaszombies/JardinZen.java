@@ -228,5 +228,19 @@ public List <Semilla> buscarEnTerrestre(String nombre){
 		throw new UnsupportedOperationException("No implementado");
 	}
 	
+	public Semilla buscarSemillaPorNombre(String semillaNombre){
+		Semilla result = null;
+		List <Semilla> unidas = this.semillasAcuaticas;
+		unidas.addAll(this.getSemillasTerrestres());
+		while ( result == null)
+			{for (Semilla sem: unidas)
+					if (sem.getNombre() == semillaNombre)
+					{result = sem;}
+			}
+			return result;
+	
+		}
+		
+	
 	
 }
