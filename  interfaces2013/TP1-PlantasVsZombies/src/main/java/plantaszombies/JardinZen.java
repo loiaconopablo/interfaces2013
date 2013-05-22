@@ -44,7 +44,7 @@ public class JardinZen {
 		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Lanzaguisantes",100,50));
 		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Petacereza",75,20));
 		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Patapum",90,50));
-		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Carnívora",100,30));
+		terrestres.add(new Semilla(new TipoTerrenoTerrestre(),"Carnivora",100,30));
 	
 	
 		List<Mejora> mejoras = new LinkedList<Mejora>();
