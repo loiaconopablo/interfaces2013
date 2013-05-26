@@ -27,6 +27,16 @@ public class Semilla {
 		this.mejorasAplicadas = new LinkedList<Mejora>();
 	}
 
+	
+	public void setCapacidadDefensiva(int capacidadDefensiva) {
+		this.capacidadDefensiva = capacidadDefensiva;
+	}
+
+	public void setPuntosDeDanio(int puntosDeDanio) {
+		this.puntosDeDanio = puntosDeDanio;
+	}
+
+
 	public List<Mejora> getMejorasAplicadas() {
 		return mejorasAplicadas;
 	}
