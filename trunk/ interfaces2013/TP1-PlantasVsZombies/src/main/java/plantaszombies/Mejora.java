@@ -51,6 +51,9 @@ public class Mejora {
 	public void aplicarMejora(Planta planta) {
 		this.getTipo().aplicarMejora(planta, this.getporcDeMejora());
 	}
-
+	
+	public void aplicarMejora(Semilla semilla) {
+		this.getTipo().aplicarMejora(semilla, this.getporcDeMejora());
+	}
 
 }
