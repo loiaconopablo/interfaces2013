@@ -100,8 +100,8 @@ public class JardinZen {
 
 		Comparator<Semilla> comparatorDefensa = new Comparator<Semilla>() {
 			public int compare(Semilla semilla1, Semilla semilla2) {
-				return semilla2.getCapacidadDefensiva()
-						- semilla1.getCapacidadDefensiva();
+				return semilla1.getCapacidadDefensiva()
+						- semilla2.getCapacidadDefensiva();
 			}
 		};
 		
@@ -113,7 +113,7 @@ public class JardinZen {
 		
 		this.comparator = new HashMap<String, Comparator<Semilla>>();
 		this.comparator.put("danio", comparatorDanio);
-		this.comparator.put("capacidadDefensiva", comparatorDefensa);
+		this.comparator.put("capDefensiva", comparatorDefensa);
 		this.comparator.put("nombre", comparatorNombre);
 	}
 
