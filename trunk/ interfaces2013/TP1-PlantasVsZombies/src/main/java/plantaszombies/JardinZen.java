@@ -6,9 +6,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
-import org.apache.commons.collections15.ComparatorUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.builder.CompareToBuilder;
 import org.uqbar.commons.model.UserException;
 import org.uqbar.commons.utils.Observable;
 
@@ -25,6 +23,9 @@ public class JardinZen {
 	private Jardin jardin;
 	private List<Mejora> mejorasPredefinidas;
 	private HashMap<String, Comparator<Semilla>> comparator;
+	
+	
+//	private PropertyComparator propertyComparator = new PropertyComparator();
 
 	public JardinZen(Jardin jardin) {
 
@@ -252,7 +253,4 @@ public class JardinZen {
 		}
 		return semillas;
 	}
-
-	
-
 }
