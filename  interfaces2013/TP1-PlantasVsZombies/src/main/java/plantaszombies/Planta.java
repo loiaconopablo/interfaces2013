@@ -77,6 +77,14 @@ public class Planta {
 		return this.getNombre() + "(" + this.getPuntosDeDanio() + "/" + this.getCapacidadDefensiva() + ")";
 	}
 	
+	/**
+	 * Solo para usar en wicket
+	 * 
+	 */
+	public String getToString(){
+		return this.toString();
+	}
+	
 	public boolean estaViva(){
 		return this.getCapacidadDefensiva() > 0;
 	}
