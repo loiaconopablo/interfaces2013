@@ -116,6 +116,7 @@ public class JardinZen {
 		this.comparator.put("danio", comparatorDanio);
 		this.comparator.put("capDefensiva", comparatorDefensa);
 		this.comparator.put("nombre", comparatorNombre);
+		this.comparator.put("nombreParaOrdenar", comparatorNombre);
 	}
 
 	/**
