@@ -95,7 +95,7 @@ public class Terreno {
 	}
 
 	public void aniadirEn(Semilla semilla, int casillero, Jardin jardin) {
-		this.getPlantas().add(casillero, semilla.sembrar(this));
+		this.getPlantas().set(casillero, semilla.sembrar(this));
 	}
 	
 	
