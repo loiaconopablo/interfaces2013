@@ -20,7 +20,7 @@ public class Terreno {
 		this.plantas = new ArrayList<Planta>(5); // Terreno
 		this.tipoTerreno = terreno;
 		for (int i = 0; i < 5; i++) {
-			this.getPlantas().add(null);
+			this.getPlantas().add(i,null);
 		}
 	}
 
