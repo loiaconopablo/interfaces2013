@@ -64,7 +64,7 @@ public class Terreno {
 	}
 
 	public void desplantame(Planta planta) {
-		this.getPlantas().remove(planta);
+		this.getPlantas().set(this.getPlantas().indexOf(planta), null);
 	}
 
 	public boolean esAcuatico() {

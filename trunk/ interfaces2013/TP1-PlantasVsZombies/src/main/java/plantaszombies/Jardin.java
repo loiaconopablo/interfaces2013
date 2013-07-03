@@ -78,24 +78,19 @@ public class Jardin {
 		if(fila > this.filas.size() - 1){
 			throw new UserException("No hay tantas filas en el tablero");
 		}
-		
+		this.getTerrenoAPlantar(fila).sembrar(semilla, columna, this);
+	}
+	
+	protected Terreno getTerrenoAPlantar(int fila) {
 		int limite = this.getTerrenosTerrestres().size();
-		
-		if (fila<limite){
-			List<Terreno> filasTemp = this.terrenosTerrestres;
-			filasTemp.get(fila).sembrar(semilla, columna,this);
-			this.terrenosTerrestres = null;
-			this.terrenosTerrestres = new LinkedList<Terreno>(filasTemp);	
+		if (fila < limite){
+			return this.terrenosTerrestres.get(fila);
 		}
 		else {
-			fila = fila - limite;
-			List<Terreno> filasTemp = this.terrenosAcuaticos;
-			filasTemp.get(fila).sembrar(semilla, columna,this);
-			this.terrenosAcuaticos = null;
-			this.terrenosAcuaticos = new LinkedList<Terreno>(filasTemp);			
+			return this.terrenosAcuaticos.get(fila - limite);
 		}
-		
 	}
+
 	/**
 	 * Accesors
 	 */
